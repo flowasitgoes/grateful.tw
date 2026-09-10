@@ -1,0 +1,15 @@
+export const COPY = {
+  loginTitle: '登入',
+  loginButton: '登入',
+  loginLoading: '登入中',
+  loginFailed: '登入失敗',
+  todayTitle: '今天',
+  save: '儲存',
+  logout: '登出',
+  sectionHint: '1～3 句，可留空。',
+  reading: '讀取中',
+  readFailed: '讀取失敗',
+  saving: '儲存中',
+  saveFailed: '儲存失敗',
+  saved: '已儲存',
+} as const;

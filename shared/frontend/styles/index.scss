@@ -1,10 +1,57 @@
-/* Design tokens。兩端從 angular.json styles 引入。 */
+/* Reading layout for the first journal. */
 :root {
   color: #1a1a1a;
-  background: #fff;
-  font-family: system-ui, sans-serif;
+  background: #f7f4ef;
+  font-family: "Songti TC", "Noto Serif TC", "Hiragino Mincho ProN", serif;
 }
 
 body {
   margin: 0;
+}
+
+.journal {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  line-height: 1.8;
+}
+
+.journal h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 2rem;
+}
+
+.journal h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+}
+
+.journal h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.75rem 0 0.75rem;
+}
+
+.journal p,
+.journal li {
+  margin: 0 0 1rem;
+}
+
+.journal ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.journal blockquote {
+  margin: 0 0 1.25rem;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 3px solid #c4b8a5;
+  color: #333;
+}
+
+.journal hr,
+.journal section + section {
+  border: 0;
 }

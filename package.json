@@ -13,10 +13,12 @@
     "build:mobile": "ng build mobile",
     "cap:sync": "cap sync",
     "check": "npm run build:web && npm run build:mobile && npx cap sync",
+    "emulators": "firebase emulators:start --only auth,firestore --project grateful-tw",
+    "seed:emulator": "node scripts/seed-emulator-user.mjs",
     "test:web": "ng test web",
     "test:mobile": "ng test mobile",
     "test:unit": "vitest run tests/unit shared/contracts",
-    "test:integration": "vitest run tests/integration"
+    "test:integration": "firebase emulators:exec --only firestore --project grateful-tw -- vitest run tests/integration"
   },
   "dependencies": {
     "@angular/common": "20.3.30",
@@ -38,6 +40,8 @@
     "@angular/compiler-cli": "20.3.30",
     "@capacitor/cli": "8.5.1",
     "typescript": "5.8.3",
-    "vitest": "3.2.4"
+    "vitest": "3.2.4",
+    "@firebase/rules-unit-testing": "5.0.2",
+    "firebase-tools": "15.30.0"
   }
 }

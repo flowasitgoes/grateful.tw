@@ -1,4 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './features/home/home.page';
+import { TodayPage } from './features/today/today.page';
 
-export const routes: Routes = [{ path: '', component: HomePage }];
+export const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'today' },
+  { path: 'today', component: TodayPage },
+  { path: '**', redirectTo: 'today' },
+];

@@ -1,2 +1,3 @@
-/** 僅 Web／Mobile。可重用元件待 06-ui-ux 定稿後再加。 */
-export {};
+export { COPY } from './copy';
+export { ButtonComponent } from './button.component';
+export { FirstJournalComponent, FIRST_JOURNAL_TITLE } from './first-journal.component';

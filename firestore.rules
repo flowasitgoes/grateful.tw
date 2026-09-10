@@ -1,10 +1,49 @@
 rules_version = '2';
 
-// 預設全拒。Collection 先在 docs/sdd/05-data-models.md 定欄位，再改本檔。
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /users/{uid}/entries/{entryId} {
+      allow read: if isOwner(uid) && isDateId(entryId);
+      allow create, update: if isOwner(uid) && isDateId(entryId) && isValidEntry();
+      allow delete: if false;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
   }
+}
+
+function isOwner(uid) {
+  return request.auth != null && request.auth.uid == uid;
+}
+
+function isDateId(entryId) {
+  return entryId.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$');
+}
+
+function isValidEntry() {
+  let data = request.resource.data;
+  return data.keys().hasOnly([
+      'addressing',
+      'safety',
+      'acceptance',
+      'capability',
+      'relationship',
+      'creation',
+      'abundance',
+      'gratitude',
+      'intention',
+      'updatedAt'
+    ])
+    && data.addressing is string
+    && data.safety is string
+    && data.acceptance is string
+    && data.capability is string
+    && data.relationship is string
+    && data.creation is string
+    && data.abundance is string
+    && data.gratitude is string
+    && data.intention is string
+    && data.updatedAt is timestamp;
 }

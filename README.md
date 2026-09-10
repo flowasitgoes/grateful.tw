@@ -9,17 +9,17 @@
 ## 現況
 
 - 工程骨架與 SDD 已依固定目錄落地。
-- **P0 已定稿：** 私人日記；Web＋Mobile 同一條「今天九段」；email／密碼登入與 Firestore 同步。未寫進規格的功能不要做。
+- **P0：** 只讀呈現第一篇「冠均的 Affirmation」。沒有輸入、沒有 Firebase。`npm run start:web` 即可閱讀。
 
 ## 指令
 
 ```bash
 npm install
-npm run start:web      # ng serve web
+npm run start:web      # ng serve web；打開即可閱讀第一篇
 npm run start:mobile   # ng serve mobile（瀏覽器先驗 UI）
+npm run test:unit
 npm run build:web      # → dist/apps/web/browser
 npm run build:mobile   # → www/
-npm run check          # build:web + build:mobile + cap sync
 ```
 
 實機（需已 `npx cap add android`）：

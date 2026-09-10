@@ -1,2 +1,3 @@
-/** 僅前端 facade。頁面不直接散落 Firestore 細節。待 04／05 定稿後再加。 */
-export {};
+export { AuthService } from './auth.service';
+export { EntryService } from './entry.service';
+export { authGuard, guestGuard } from './auth.guards';

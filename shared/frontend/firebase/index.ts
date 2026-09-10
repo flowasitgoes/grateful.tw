@@ -1,2 +1,3 @@
-/** Firebase Client SDK 初始化。待人類接專案後再寫。Functions 不得 import 本目錄。 */
-export {};
+export { firebaseEnvironment } from './environment';
+export { getFirebaseAuth, getFirebaseDb, initFirebase } from './init';
+export type { FirebaseInitOptions } from './init';
