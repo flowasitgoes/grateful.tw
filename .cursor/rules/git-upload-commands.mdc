@@ -1,0 +1,25 @@
+---
+description: 給使用者 git 上傳指令時的固定格式
+alwaysApply: true
+---
+
+# Git 指令給使用者的格式
+
+使用者要 commit msg 或上傳指令時，只給可複製區塊，格式固定如下。不要加 `ssh-add`、不要改成別種 commit 寫法。
+
+```bash
+cd /Users/Guanjun/grateful.tw
+
+git add -A
+
+git commit -m "$(cat <<'EOF'
+<subject>
+
+<body>
+EOF
+)"
+
+git push -u origin <current-branch>
+```
+
+`<current-branch>` 填當前分支名（例如 `main` 或 `p0-auth-today`）。
