@@ -9,6 +9,9 @@ export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_DESCRIPTION =
   '冠均的感恩日記。十三篇肯定與感恩練習，極簡只讀。';
+export const SITE_OG_IMAGE_PATH = '/og-image.png';
+export const SITE_OG_IMAGE_WIDTH = '1200';
+export const SITE_OG_IMAGE_HEIGHT = '630';
 
 export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
   'affirmation-1': '我愛你，冠均。我真的愛你。我信任你。生命會提供我所需要的一切。',
@@ -64,6 +67,7 @@ export function websiteJsonLd(): Record<string, string> {
     url: siteUrl('/'),
     inLanguage: 'zh-Hant',
     description: SITE_DESCRIPTION,
+    image: siteUrl(SITE_OG_IMAGE_PATH),
   };
 }
 
@@ -76,6 +80,7 @@ export function articleJsonLd(journal: Journal): Record<string, string> {
     datePublished: journal.createdAt,
     inLanguage: 'zh-Hant',
     url: siteUrl(journalCanonicalPath(journal.id)),
+    image: siteUrl(SITE_OG_IMAGE_PATH),
   };
 }
 

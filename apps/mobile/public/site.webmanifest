@@ -1,0 +1,21 @@
+{
+  "name": "grateful.tw",
+  "short_name": "grateful.tw",
+  "description": "冠均的感恩日記。十三篇肯定與感恩練習，極簡只讀。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2f2f2",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

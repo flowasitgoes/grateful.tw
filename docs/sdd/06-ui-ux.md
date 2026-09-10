@@ -40,5 +40,7 @@ P0 至少有一篇，不做空列表畫面。
 ## SEO
 
 - 全站：`感恩日記｜grateful.tw`；description、og、canonical 指向 `https://grateful.tw/`
+- `og:image` 暫用九宮格圖，1200×630（方圖置中、底色 `#f2f2f2`）
+- favicon：16／32 PNG 與 `favicon.ico`；加入主畫面用 180／192／512
 - 閱讀頁：`篇名｜Day n｜grateful.tw`；description 為該篇開頭文意；canonical 為該篇 URL
 - `apps/web/public/robots.txt`、`sitemap.xml` 進 Web 靜態產出

@@ -14,6 +14,7 @@ describe('site SEO', () => {
   it('names the home document 感恩日記｜grateful.tw', () => {
     expect(homeSeoTitle()).toBe('感恩日記｜grateful.tw');
     expect(siteUrl('/')).toBe('https://grateful.tw/');
+    expect(siteUrl('/og-image.png')).toBe('https://grateful.tw/og-image.png');
   });
 
   it('gives each journal a unique title and description', () => {
@@ -40,5 +41,6 @@ describe('site SEO', () => {
     expect(json['@type']).toBe('Article');
     expect(json.headline).toBe('愛、信任與安全感');
     expect(json.url).toBe('https://grateful.tw/journals/affirmation-1');
+    expect(json.image).toBe('https://grateful.tw/og-image.png');
   });
 });

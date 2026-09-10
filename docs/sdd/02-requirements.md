@@ -14,5 +14,5 @@
 | READ-03 | 閱讀頁頂欄左側返回圖示（`aria-label`「返回」）可回主界面。 | 兩端 |
 | READ-04 | 未知 `id` 回到 `/`。 | 兩端 |
 | READ-05 | 閱讀頁 `h1` 不含「一、」等序號；畫面右下角 **Day n** 在上，日期時間在下。 | 兩端 |
-| SEO-01 | 全站文件標題為「感恩日記｜grateful.tw」；有 description、Open Graph、canonical、`robots.txt`、`sitemap.xml`。 | Web |
+| SEO-01 | 全站文件標題為「感恩日記｜grateful.tw」；有 description、Open Graph（含 `og:image` 1200×630）、canonical、favicon、`robots.txt`、`sitemap.xml`。 | Web |
 | SEO-02 | 每篇閱讀頁文件標題為「篇名｜Day n｜grateful.tw」，description 取該篇開頭文意。 | 兩端 |

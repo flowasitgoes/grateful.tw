@@ -3,6 +3,9 @@ import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import {
   SITE_NAME,
+  SITE_OG_IMAGE_HEIGHT,
+  SITE_OG_IMAGE_PATH,
+  SITE_OG_IMAGE_WIDTH,
   articleJsonLd,
   homeSeoDescription,
   homeSeoTitle,
@@ -58,9 +61,14 @@ export class PageMeta {
     this.meta.updateTag({ property: 'og:type', content: input.type });
     this.meta.updateTag({ property: 'og:locale', content: 'zh_TW' });
     this.meta.updateTag({ property: 'og:site_name', content: SITE_NAME });
-    this.meta.updateTag({ name: 'twitter:card', content: 'summary' });
+    this.meta.updateTag({ property: 'og:image', content: siteUrl(SITE_OG_IMAGE_PATH) });
+    this.meta.updateTag({ property: 'og:image:width', content: SITE_OG_IMAGE_WIDTH });
+    this.meta.updateTag({ property: 'og:image:height', content: SITE_OG_IMAGE_HEIGHT });
+    this.meta.updateTag({ property: 'og:image:alt', content: SITE_NAME });
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: input.title });
     this.meta.updateTag({ name: 'twitter:description', content: input.description });
+    this.meta.updateTag({ name: 'twitter:image', content: siteUrl(SITE_OG_IMAGE_PATH) });
     this.setCanonical(input.url);
     this.setJsonLd(input.jsonLd);
   }
