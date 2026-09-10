@@ -1,11 +1,21 @@
 # 05 — 資料模型
 
-P0 沒有使用者輸入、沒有後端文件。第一篇日記是**寫死在前端的靜態文稿**，與畫面一對一。
+靜態目錄，寫死在前端。P0 不寫入 localStorage／Firebase。
 
-| 儲存 | 本產品是否使用 |
-| --- | --- |
-| 靜態文稿（元件 template） | P0 使用 |
-| localStorage | 不使用 |
-| Firestore / Auth | 不使用 |
+## Journal
 
-不得加 collection、表單欄位、或把這篇文稿拆成可編輯欄位。
+| 欄位 | 型別 | 說明 |
+| --- | --- | --- |
+| `id` | string | 路由用 |
+| `title` | string | 列表與閱讀標題 |
+| `createdAt` | string | ISO 8601（含時區）。畫面顯示 `YYYY-MM-DD HH:mm`，時區 `Asia/Taipei` |
+
+不得加摘要、標籤、草稿、作者欄。
+
+## 現有篇目
+
+| id | title | createdAt |
+| --- | --- | --- |
+| `affirmation-1` | 冠均的 Affirmation | `2026-09-10T17:08:00+08:00` |
+
+`createdAt` 為使用者提供此文稿當日（台北時間）。內文仍為靜態 template，不拆成可編輯欄位。

@@ -15,6 +15,7 @@ describe('first journal', () => {
     expect(html).not.toContain('<textarea');
     expect(html).not.toContain('<input');
     expect(html).not.toContain('儲存');
+    expect(html).toContain('<time');
   });
 
   it('includes all eleven chapters', () => {

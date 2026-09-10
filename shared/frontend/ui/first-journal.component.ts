@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { formatJournalDateTime } from '@app/contracts';
 
 export const FIRST_JOURNAL_TITLE = '冠均的 Affirmation';
 
@@ -6,4 +7,10 @@ export const FIRST_JOURNAL_TITLE = '冠均的 Affirmation';
   selector: 'grateful-first-journal',
   templateUrl: './first-journal.component.html',
 })
-export class FirstJournalComponent {}
+export class FirstJournalComponent {
+  readonly createdAt = input('');
+  readonly createdLabel = computed(() => {
+    const iso = this.createdAt();
+    return iso ? formatJournalDateTime(iso) : '';
+  });
+}

@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
-import { TodayPage } from './features/today/today.page';
+import { HomePage } from './features/home/home.page';
+import { JournalPage } from './features/journal/journal.page';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'today' },
-  { path: 'today', component: TodayPage },
-  { path: '**', redirectTo: 'today' },
+  { path: '', pathMatch: 'full', component: HomePage },
+  { path: 'journals/:id', component: JournalPage },
+  { path: 'today', redirectTo: 'journals/affirmation-1', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];

@@ -9,13 +9,13 @@
 ## 現況
 
 - 工程骨架與 SDD 已依固定目錄落地。
-- **P0：** 只讀呈現第一篇「冠均的 Affirmation」。沒有輸入、沒有 Firebase。`npm run start:web` 即可閱讀。
+- **P0：** 極簡列表（最新在前）→ 點進閱讀。每篇有建立日期時間。右上漢堡僅佔位。無輸入、無 Firebase。
 
 ## 指令
 
 ```bash
 npm install
-npm run start:web      # ng serve web；打開即可閱讀第一篇
+npm run start:web      # ng serve web；主界面為日記列表
 npm run start:mobile   # ng serve mobile（瀏覽器先驗 UI）
 npm run test:unit
 npm run build:web      # → dist/apps/web/browser

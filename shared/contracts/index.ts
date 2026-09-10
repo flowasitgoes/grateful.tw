@@ -8,3 +8,10 @@ export {
   todayEntryId,
 } from './entry';
 export type { EntrySectionKey, EntrySections } from './entry';
+export {
+  JOURNALS,
+  findJournal,
+  formatJournalDateTime,
+  journalsNewestFirst,
+} from './journal';
+export type { Journal } from './journal';

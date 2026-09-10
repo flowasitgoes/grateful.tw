@@ -1,5 +1,10 @@
 <article class="journal">
   <h1>冠均的 Affirmation</h1>
+  @if (createdLabel()) {
+    <p class="journal-created">
+      <time [attr.datetime]="createdAt()">{{ createdLabel() }}</time>
+    </p>
+  }
 
   <section>
     <h2>一、愛、信任與安全感</h2>

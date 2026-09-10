@@ -1,8 +1,9 @@
 # 07 — 測試計畫
 
-| 改什麼 | 跑什麼 |
+| 案例 | 跑什麼 |
 | --- | --- |
-| 第一篇文稿 | `tests/unit`：標題、十一章、精簡版、結構；沒有 textarea |
+| 列表新到舊、日期格式 | `tests/unit` |
+| 第一篇文稿仍在、無表單 | `tests/unit` |
 
 ```bash
 npm run test:unit
