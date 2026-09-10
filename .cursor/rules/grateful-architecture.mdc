@@ -22,4 +22,4 @@ alwaysApply: true
 
 - `@app/contracts`：純型別與常數；Web／Mobile／Functions 都可 import。
 - `@app/frontend/*`：僅 Web／Mobile。
-- Web → `dist/apps/web/browser`；Mobile → 根目錄 `www/` → `npx cap sync`。
+- Web → `dist/apps/web/browser`（P0 部署 Vercel）；Mobile → 根目錄 `www/` → `npx cap sync`。

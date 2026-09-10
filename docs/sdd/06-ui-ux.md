@@ -44,3 +44,4 @@ P0 至少有一篇，不做空列表畫面。
 - favicon：16／32 PNG 與 `favicon.ico`；加入主畫面用 180／192／512
 - 閱讀頁：`篇名｜Day n｜grateful.tw`；description 為該篇開頭文意；canonical 為該篇 URL
 - `apps/web/public/robots.txt`、`sitemap.xml` 進 Web 靜態產出
+- P0 由 Vercel 提供靜態檔與 SPA fallback；不得為路由自建 REST `/api`

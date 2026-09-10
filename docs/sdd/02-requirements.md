@@ -16,3 +16,5 @@
 | READ-05 | 閱讀頁 `h1` 不含「一、」等序號；畫面右下角 **Day n** 在上，日期時間在下。 | 兩端 |
 | SEO-01 | 全站文件標題為「感恩日記｜grateful.tw」；有 description、Open Graph（含 `og:image` 1200×630）、canonical、favicon、`robots.txt`、`sitemap.xml`。 | Web |
 | SEO-02 | 每篇閱讀頁文件標題為「篇名｜Day n｜grateful.tw」，description 取該篇開頭文意。 | 兩端 |
+| DEPLOY-01 | 根目錄設定讓 Vercel 執行 `npm run build:web`（不可只跑 `ng build`），產出 `dist/apps/web/browser`。 | Web |
+| DEPLOY-02 | Vercel 上 `/journals/:id` 等前端路由落到 SPA；`robots.txt`、`sitemap.xml`、圖示與 `og-image` 以靜態檔提供。 | Web |

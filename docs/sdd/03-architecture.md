@@ -25,7 +25,8 @@
 ├── angular.json              # 兩個 project：web、mobile
 ├── tsconfig.json             # path alias：@app/contracts、@app/frontend/*
 ├── capacitor.config.ts       # appId、webDir: 'www'
-├── firebase.json             # hosting 指 Web dist；functions 指 functions/
+├── firebase.json             # 後端／emulator；P0 Web 不上 Hosting
+├── vercel.json               # P0 靜態 Web：build web、output browser、SPA rewrite
 ├── firestore.rules
 ├── docs/
 │   ├── prd/PRD.md
@@ -62,9 +63,12 @@
 ### `apps/web`
 
 - 桌面優先 SPA。
-- 部署：`ng build web` → `dist/apps/web/browser` → Firebase Hosting（SPA rewrite 到 `index.html`）。
+- 建置：`npm run build:web`（`ng build web`）→ `dist/apps/web/browser`。不可只跑 `ng build`（workspace 還有 mobile）。
+- P0 部署：**Vercel** 連 GitHub `main`。根目錄 `vercel.json` 指定 build 與 output。Framework 用 Other／不自動偵測 Angular 的裸 `ng build`。
+- 網域：`grateful.tw` 指到 Vercel。
 - 不要引入 `@ionic/angular`、`@capacitor/*`。
-- 管理後台只放這裡。
+- 管理後台只放這裡（P0 不做）。
+- Firebase Hosting 本階段不用；`firebase.json` 的 hosting 區塊可留著，不作為 P0 上線路徑。
 
 ### `apps/mobile`
 
@@ -103,7 +107,7 @@ Web **不走** `www/`：
 
 ```bash
 npm run build:web     # → dist/apps/web/browser
-firebase deploy --only hosting
+# P0：git push main → Vercel（見 vercel.json）
 ```
 
 `npm run check` 一次跑：`build:web` + `build:mobile` + `cap sync`。
@@ -194,11 +198,11 @@ Collection **先**在 `05-data-models.md` 定欄位，再寫 rules 與 contracts
                  │ @app/contracts │
                  ▼               ▼
          ┌─────────────┐  ┌─────────────┐
-         │ Firebase    │  │ Hosting=Web │
-         │ Auth/FS/    │  │ www/ → Cap  │
-         │ RTDB/Stor/  │  │ android/ios │
-         │ FCM/CF      │  └─────────────┘
+         │ Vercel      │  │ www/ → Cap  │
+         │ 靜態 Web    │  │ android/ios │
+         │ (P0)        │  └─────────────┘
          └─────────────┘
+              P1 才接 Firebase Auth/FS/…
 ```
 
 ## 第一週建議順序（人類＋AI）
@@ -206,7 +210,7 @@ Collection **先**在 `05-data-models.md` 定欄位，再寫 rules 與 contracts
 1. 寫最短 PRD：誰、核心流程、P0／非 P0。
 2. 寫完本檔已有的工程部分後，補 01 功能表、02 產品 AC。
 3. 建 monorepo（本 repo 骨架）。
-4. 接 Firebase 專案＋emulator；Hosting 指 Web dist；Capacitor `webDir: www`。
+4. P0 Web：Vercel 連 GitHub，build `web` 靜態產出。Firebase 專案＋emulator 留到有資料寫入再接。
 5. 先做 Auth 與一條主路徑；表單放 `shared/frontend/ui`。（須先有對應 AC）
 6. Mobile 能 build → `cap sync` → 實機，再開始堆功能。
 7. 之後每個功能：task → Spec Check → 最小實作 → 測試 → squash MR 進 main。
