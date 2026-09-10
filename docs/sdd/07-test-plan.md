@@ -1,6 +1,6 @@
 # 07 — 測試計畫
 
-改什麼就跑什麼。產品案例等 AC 定稿後補列。
+改什麼就跑什麼。
 
 ## 對齊資料夾
 
@@ -14,15 +14,24 @@
 
 CI 建議：`test:web` + `test:mobile` + `test:unit` + `test:integration`。
 
-## 覆蓋率
+## 產品案例（對齊 AC）
 
-產品 AC 定稿後再定門檻。工程骨架階段：能 build、能依上表對應即可，不為未寫的功能寫測試。
+| 案例 | 層 | 要測 | 依據 |
+| --- | --- | --- | --- |
+| 九段 key 順序與預設空字串 | `tests/unit` + contracts | 固定九 key，不可多不可少 | TODAY-01、05 |
+| 未登入不能讀寫 entries | `tests/integration` + emulator | Rules 拒絕 | SEC-01 |
+| 只能讀寫自己的 uid | `tests/integration` | 他人路徑拒絕 | SEC-01 |
+| 可寫九段 string + updatedAt | `tests/integration` | 允許；多餘欄位拒絕 | 05、TODAY-03 |
+| 登入／今天畫面狀態文案 | `ng test web`、`ng test mobile` | loading ≠ empty；失敗文案 | AUTH-*、TODAY-*、06 |
 
 ## E2E
 
 | 案例 | 端 | 步驟 | 依據 AC |
 | --- | --- | --- | --- |
-| （待填） | | | |
+| 登入後存今天再重整 | Web | 登入 → 填至少一段 → 儲存 → 重整 → 內容仍在 | AUTH-01、TODAY-03、TODAY-04 |
+| 同帳號跨端 | Web + Mobile | 一端儲存，另一端打開今天看到同一內容 | TODAY-05 |
+
+E2E 可在 Auth＋今天主路徑實作後再補跑；實作當次至少要有 rules 整合測試與 contracts unit。
 
 ## 指令
 
