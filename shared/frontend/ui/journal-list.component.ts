@@ -1,17 +1,26 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { formatJournalDateTime, journalsNewestFirst } from '@app/contracts';
+import {
+  formatJournalDateTime,
+  journalDayLabel,
+  journalSubtitle,
+  journalsNewestFirst,
+} from '@app/contracts';
 
 @Component({
   selector: 'grateful-journal-list',
   imports: [RouterLink],
   template: `
-    <ul class="journal-list">
+    <ul class="journal-grid">
       @for (journal of journals; track journal.id) {
         <li>
           <a [routerLink]="['/journals', journal.id]">
-            <span class="journal-list-title">{{ journal.title }}</span>
-            <time class="journal-list-time" [attr.datetime]="journal.createdAt">{{
+            <span class="journal-grid-meta">
+              <span class="journal-grid-day">{{ dayLabel(journal.id) }}</span>
+              <span class="journal-grid-sub">{{ subtitle(journal.id) }}</span>
+            </span>
+            <span class="journal-grid-title">{{ journal.title }}</span>
+            <time class="journal-grid-time" [attr.datetime]="journal.createdAt">{{
               format(journal.createdAt)
             }}</time>
           </a>
@@ -23,4 +32,6 @@ import { formatJournalDateTime, journalsNewestFirst } from '@app/contracts';
 export class JournalListComponent {
   readonly journals = journalsNewestFirst();
   readonly format = formatJournalDateTime;
+  readonly dayLabel = journalDayLabel;
+  readonly subtitle = journalSubtitle;
 }

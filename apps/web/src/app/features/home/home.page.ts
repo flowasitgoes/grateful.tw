@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PageMeta } from '@app/frontend/data-access';
 import { JournalListComponent, ShellComponent } from '@app/frontend/ui';
 
 @Component({
@@ -10,4 +11,8 @@ import { JournalListComponent, ShellComponent } from '@app/frontend/ui';
     </grateful-shell>
   `,
 })
-export class HomePage {}
+export class HomePage {
+  constructor() {
+    inject(PageMeta).setHome();
+  }
+}

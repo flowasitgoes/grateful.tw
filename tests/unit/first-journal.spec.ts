@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { FIRST_JOURNAL_TITLE } from '../../shared/frontend/ui/first-journal.component';
+import { JOURNAL_HEADINGS, JOURNAL_TITLE } from '../../shared/contracts/journal';
 
 const html = readFileSync(
   resolve('shared/frontend/ui/first-journal.component.html'),
@@ -9,32 +9,41 @@ const html = readFileSync(
 );
 
 describe('first journal', () => {
-  it('is titled 冠均的 Affirmation and is not a form', () => {
-    expect(FIRST_JOURNAL_TITLE).toBe('冠均的 Affirmation');
-    expect(html).toContain('冠均的 Affirmation');
+  it('is titled 感恩日記 on tiles and is not a form', () => {
+    expect(JOURNAL_TITLE).toBe('感恩日記');
+    expect(html).toContain('{{ heading() }}');
+    expect(html).toContain('journal-corner');
+    expect(html).toContain('journal-day');
+    expect(html).toContain('{{ dayLabel() }}');
     expect(html).not.toContain('<textarea');
     expect(html).not.toContain('<input');
     expect(html).not.toContain('儲存');
     expect(html).toContain('<time');
   });
 
-  it('includes all eleven chapters', () => {
-    expect(html).toContain('一、愛、信任與安全感');
-    expect(html).toContain('二、自愛與自我接納');
-    expect(html).toContain('三、內在小孩與療癒');
-    expect(html).toContain('四、愛與親密關係');
-    expect(html).toContain('五、自信、能力與力量');
-    expect(html).toContain('六、專注、平靜與生活節奏');
-    expect(html).toContain('七、創造力、工作與志向');
-    expect(html).toContain('八、金錢、豐盛與接受');
-    expect(html).toContain('九、感恩與接受');
-    expect(html).toContain('十、對伙伴與他人的祝福');
-    expect(html).toContain('十一、給孩子們的祝福');
-  });
-
-  it('includes the daily short version and nine-step structure', () => {
-    expect(html).toContain('每日精簡版');
-    expect(html).toContain('系統化 Affirmation 結構');
-    expect(html).toContain('稱呼自己 → 安全感 → 自我接納 → 能力 → 關係 → 創造 → 金錢 → 感恩 → 今日意圖');
+  it('splits eleven chapters, daily short, and structure into thirteen articles', () => {
+    expect(Object.keys(JOURNAL_HEADINGS)).toHaveLength(13);
+    expect(JOURNAL_HEADINGS['affirmation-1']).toBe('愛、信任與安全感');
+    expect(JOURNAL_HEADINGS['affirmation-2']).toBe('自愛與自我接納');
+    expect(JOURNAL_HEADINGS['affirmation-3']).toBe('內在小孩與療癒');
+    expect(JOURNAL_HEADINGS['affirmation-4']).toBe('愛與親密關係');
+    expect(JOURNAL_HEADINGS['affirmation-5']).toBe('自信、能力與力量');
+    expect(JOURNAL_HEADINGS['affirmation-6']).toBe('專注、平靜與生活節奏');
+    expect(JOURNAL_HEADINGS['affirmation-7']).toBe('創造力、工作與志向');
+    expect(JOURNAL_HEADINGS['affirmation-8']).toBe('金錢、豐盛與接受');
+    expect(JOURNAL_HEADINGS['affirmation-9']).toBe('感恩與接受');
+    expect(JOURNAL_HEADINGS['affirmation-10']).toBe('對伙伴與他人的祝福');
+    expect(JOURNAL_HEADINGS['affirmation-11']).toBe('給孩子們的祝福');
+    expect(JOURNAL_HEADINGS['affirmation-12']).toBe('每日精簡版');
+    expect(JOURNAL_HEADINGS['affirmation-13']).toBe('系統化 Affirmation 結構');
+    expect(html).toContain("@case ('affirmation-1')");
+    expect(html).toContain("@case ('affirmation-12')");
+    expect(html).toContain("@case ('affirmation-13')");
+    expect(html).toContain('我愛你，冠均。');
+    expect(html).toContain('親愛的孩子，我們很高興你來到這個世界。');
+    expect(html).toContain('我愛你，冠均。<br />我真的愛你。');
+    expect(html).toContain('1. 連結自己');
+    expect(html).toContain('9. 今日意圖');
+    expect(html).not.toContain('建議公式');
   });
 });

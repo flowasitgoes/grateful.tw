@@ -7,15 +7,19 @@
 | 欄位 | 型別 | 說明 |
 | --- | --- | --- |
 | `id` | string | 路由用 |
-| `title` | string | 列表與閱讀標題 |
+| `title` | string | 列表標題（皆為「感恩日記」）。閱讀頁 `h1` 用篇名，見下表。 |
 | `createdAt` | string | ISO 8601（含時區）。畫面顯示 `YYYY-MM-DD HH:mm`，時區 `Asia/Taipei` |
 
 不得加摘要、標籤、草稿、作者欄。
 
-## 現有篇目
+## 現有篇目（13 篇）
 
-| id | title | createdAt |
-| --- | --- | --- |
-| `affirmation-1` | 冠均的 Affirmation | `2026-09-10T17:08:00+08:00` |
+列表標題皆為「感恩日記」。`id` 為 `affirmation-1` … `affirmation-13`。閱讀頁 `h1` 為該篇篇名：
 
-`createdAt` 為使用者提供此文稿當日（台北時間）。內文仍為靜態 template，不拆成可編輯欄位。
+| id | 篇名 |
+| --- | --- |
+| `affirmation-1`～`11` | 十一章篇名（不含「一、」等序號，例如 `愛、信任與安全感`） |
+| `affirmation-12` | 每日精簡版 |
+| `affirmation-13` | 系統化 Affirmation 結構 |
+
+`createdAt` 由舊到新：`affirmation-1` = `2026-09-01T17:08:00+08:00`，其後每篇往後一天同一時刻，至 `affirmation-13` = `2026-09-13T17:08:00+08:00`。列表依 `createdAt` 由新到舊，故最新（Day 13）在最前。

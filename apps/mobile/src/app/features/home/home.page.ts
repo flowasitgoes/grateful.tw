@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonContent } from '@ionic/angular/standalone';
+import { PageMeta } from '@app/frontend/data-access';
 import { JournalListComponent, ShellComponent } from '@app/frontend/ui';
 
 @Component({
@@ -13,4 +14,8 @@ import { JournalListComponent, ShellComponent } from '@app/frontend/ui';
     </ion-content>
   `,
 })
-export class HomePage {}
+export class HomePage {
+  constructor() {
+    inject(PageMeta).setHome();
+  }
+}
