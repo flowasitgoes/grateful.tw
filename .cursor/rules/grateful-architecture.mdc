@@ -1,0 +1,25 @@
+---
+description: grateful.tw 規格權威、資料夾邊界與硬限制
+alwaysApply: true
+---
+
+# grateful.tw
+
+規格是唯一權威。流程：PRD／SDD → Task → Spec Check → 實作 → 測試 → 回報。缺漏就停，不要自己補需求。未寫進規格的功能不要做。
+
+詳見根目錄 `AGENTS.md`。
+
+## 硬限制
+
+- 不得未確認就改 PRD／SDD、加欄位、加流程。
+- 不得讓 Functions import `shared/frontend`。
+- 不得把 Web build 輸出到 `www/`，也不得手寫 `www/`。
+- 不得在 `apps/web` 引入 Ionic／Capacitor。
+- 不得 commit `tasks/*.md`（`tasks/README.md` 除外）。
+- 不得自建對外 REST `/api`。
+
+## 邊界
+
+- `@app/contracts`：純型別與常數；Web／Mobile／Functions 都可 import。
+- `@app/frontend/*`：僅 Web／Mobile。
+- Web → `dist/apps/web/browser`；Mobile → 根目錄 `www/` → `npx cap sync`。

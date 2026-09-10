@@ -1,0 +1,49 @@
+# Builds
+www/
+dist/
+functions/lib/
+out-tsc/
+
+# Tasks（僅 README 進版控）
+tasks/*
+!tasks/README.md
+
+# Dependencies
+node_modules/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.local
+*-service-account.json
+serviceAccount*.json
+google-services.json
+GoogleService-Info.plist
+*.jks
+*.keystore
+*.p8
+*.p12
+*.mobileprovision
+
+# IDE / OS
+.angular/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# Logs & coverage
+*.log
+npm-debug.log*
+coverage/
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+pubsub-debug.log
+database-debug.log
+
+# Capacitor generated copies（原生殼目錄進版控；www 同步產物不手改）
+# android/ 與 ios/ 由 `npx cap add` 產生後再進 git
