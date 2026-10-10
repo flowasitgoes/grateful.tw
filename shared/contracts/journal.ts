@@ -6,7 +6,7 @@ export interface Journal {
 
 export const JOURNAL_TITLE = '感恩日記';
 
-export const JOURNAL_COUNT = 13;
+export const JOURNAL_COUNT = 14;
 
 export const JOURNAL_HEADINGS: Readonly<Record<string, string>> = {
   'affirmation-1': '愛、信任與安全感',
@@ -22,15 +22,22 @@ export const JOURNAL_HEADINGS: Readonly<Record<string, string>> = {
   'affirmation-11': '給孩子們的祝福',
   'affirmation-12': '每日精簡版',
   'affirmation-13': '系統化 Affirmation 結構',
+  'affirmation-14': '謝謝你剛剛來找我',
 };
+
+function journalCreatedAt(n: number): string {
+  if (n === 14) {
+    return '2026-10-10T22:18:00+08:00';
+  }
+  return `2026-09-${String(n).padStart(2, '0')}T17:08:00+08:00`;
+}
 
 export const JOURNALS: readonly Journal[] = Array.from({ length: JOURNAL_COUNT }, (_, index) => {
   const n = index + 1;
-  const day = String(n).padStart(2, '0');
   return {
     id: `affirmation-${n}`,
     title: JOURNAL_TITLE,
-    createdAt: `2026-09-${day}T17:08:00+08:00`,
+    createdAt: journalCreatedAt(n),
   };
 });
 

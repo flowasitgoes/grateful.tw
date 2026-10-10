@@ -1,4 +1,4 @@
-export { COPY } from './copy';
+export { COPY, INSTAGRAM_HREF } from './copy';
 export { ButtonComponent } from './button.component';
 export { FirstJournalComponent } from './first-journal.component';
 export { ShellComponent } from './shell.component';

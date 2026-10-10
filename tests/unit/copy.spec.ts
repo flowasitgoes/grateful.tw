@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { COPY } from '../../shared/frontend/ui/copy';
+import { COPY, INSTAGRAM_HREF } from '../../shared/frontend/ui/copy';
 
 describe('COPY', () => {
+  it('matches 06-ui-ux Instagram link', () => {
+    expect(COPY.menu).toBe('選單');
+    expect(COPY.menuClose).toBe('關閉');
+    expect(COPY.instagram).toBe('riddles.tw');
+    expect(INSTAGRAM_HREF).toBe('https://www.instagram.com/riddles.tw');
+  });
+
   it('matches 06-ui-ux login and today copy', () => {
     expect(COPY.loginTitle).toBe('登入');
     expect(COPY.loginButton).toBe('登入');

@@ -8,7 +8,7 @@ import {
 export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_DESCRIPTION =
-  '冠均的感恩日記。十三篇肯定與感恩練習，極簡只讀。';
+  '冠均的感恩日記。十四篇肯定與感恩練習，極簡只讀。';
 export const SITE_OG_IMAGE_PATH = '/og-image.png';
 export const SITE_OG_IMAGE_WIDTH = '1200';
 export const SITE_OG_IMAGE_HEIGHT = '630';
@@ -28,6 +28,8 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
   'affirmation-12': '我愛你，冠均。我很安全，一切都很好。今天是受到祝福的一天。',
   'affirmation-13':
     '九段 Affirmation 練習：連結自己、安全感、接納、能力、關係、創造、金錢、感恩、今日意圖。',
+  'affirmation-14':
+    '謝謝你剛剛來找我，願意跟我分享你的想法和情緒。想要以後在你家一起創造更多溫馨的時光。',
 };
 
 export function siteUrl(path: string = '/'): string {

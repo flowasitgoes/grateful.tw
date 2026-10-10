@@ -25,13 +25,15 @@ describe('formatJournalDateTime', () => {
 });
 
 describe('JOURNALS', () => {
-  it('has thirteen entries, newest first is Day 13 / affirmation-13', () => {
+  it('has fourteen entries, newest first is Day 14 / affirmation-14', () => {
     expect(JOURNALS).toHaveLength(JOURNAL_COUNT);
     expect(JOURNALS[0]?.id).toBe('affirmation-1');
     expect(JOURNALS[0]?.createdAt).toBe('2026-09-01T17:08:00+08:00');
     expect(JOURNALS[12]?.id).toBe('affirmation-13');
     expect(JOURNALS[12]?.createdAt).toBe('2026-09-13T17:08:00+08:00');
-    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-13');
+    expect(JOURNALS[13]?.id).toBe('affirmation-14');
+    expect(JOURNALS[13]?.createdAt).toBe('2026-10-10T22:18:00+08:00');
+    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-14');
   });
 });
 
@@ -40,6 +42,7 @@ describe('journalDayLabel', () => {
     expect(journalDayLabel('affirmation-1')).toBe('Day 1');
     expect(journalDayLabel('affirmation-12')).toBe('Day 12');
     expect(journalDayLabel('affirmation-13')).toBe('Day 13');
+    expect(journalDayLabel('affirmation-14')).toBe('Day 14');
   });
 });
 
@@ -49,5 +52,6 @@ describe('journalSubtitle', () => {
     expect(journalSubtitle('affirmation-11')).toBe('給孩子們的祝福');
     expect(journalSubtitle('affirmation-12')).toBe('每日精簡版');
     expect(journalSubtitle('affirmation-13')).toBe('系統化 Affirmation 結構');
+    expect(journalSubtitle('affirmation-14')).toBe('謝謝你剛剛來找我');
   });
 });

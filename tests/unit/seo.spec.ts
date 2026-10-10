@@ -24,11 +24,15 @@ describe('site SEO', () => {
     expect(journalSeoTitle('affirmation-13')).toBe(
       '系統化 Affirmation 結構｜Day 13｜grateful.tw',
     );
+    expect(journalSeoTitle('affirmation-14')).toBe(
+      '謝謝你剛剛來找我｜Day 14｜grateful.tw',
+    );
     expect(journalSeoDescription('affirmation-1')).toContain('我愛你，冠均。');
     expect(journalSeoDescription('affirmation-13')).toContain('九段 Affirmation');
+    expect(journalSeoDescription('affirmation-14')).toContain('謝謝你剛剛來找我');
   });
 
-  it('lists home and thirteen article paths for the sitemap', () => {
+  it('lists home and fourteen article paths for the sitemap', () => {
     expect(sitemapPaths()).toHaveLength(JOURNAL_COUNT + 1);
     expect(sitemapPaths()[0]).toBe('/');
     expect(sitemapPaths()[1]).toBe('/journals/affirmation-1');

@@ -1,4 +1,9 @@
+export const INSTAGRAM_HREF = 'https://www.instagram.com/riddles.tw';
+
 export const COPY = {
+  menu: '選單',
+  menuClose: '關閉',
+  instagram: 'riddles.tw',
   loginTitle: '登入',
   loginButton: '登入',
   loginLoading: '登入中',

@@ -8,7 +8,13 @@ body {
   margin: 0;
 }
 
+body.shell-menu-open {
+  overflow: hidden;
+}
+
 .shell-header {
+  position: relative;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,7 +48,70 @@ body {
   border: 0;
   background: transparent;
   color: inherit;
-  cursor: default;
+  cursor: pointer;
+}
+
+.shell-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: transparent;
+  pointer-events: none;
+}
+
+.shell-backdrop.is-open {
+  pointer-events: auto;
+}
+
+.shell-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 25;
+  width: min(13.5rem, 70vw);
+  padding: 4.25rem 0.7rem 1.25rem;
+  background: #f2f2f2;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.06);
+  transform: translateX(100%);
+  transition: transform 0.42s cubic-bezier(0.32, 0.72, 0, 1);
+  box-sizing: border-box;
+}
+
+.shell-drawer.is-open {
+  transform: translateX(0);
+}
+
+.shell-menu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border-radius: 0.55rem;
+  overflow: hidden;
+}
+
+.shell-instagram {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2rem;
+  padding: 0.45rem 0.7rem;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.shell-instagram:hover,
+.shell-instagram:active {
+  background: #f7f7f7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shell-backdrop,
+  .shell-drawer {
+    transition: none;
+  }
 }
 
 .journal-grid {
