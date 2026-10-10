@@ -46,7 +46,7 @@ describe('first journal', () => {
     expect(html).toContain('我愛你，冠均。<br />我真的愛你。');
     expect(html).toContain('1. 連結自己');
     expect(html).toContain('9. 今日意圖');
-    expect(html).toContain('也謝謝妳 🥰');
+    expect(html).toContain('「 也謝謝妳 🥰 」');
     expect(html).not.toContain('建議公式');
   });
 });

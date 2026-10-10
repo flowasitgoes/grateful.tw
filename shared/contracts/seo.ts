@@ -29,7 +29,7 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
   'affirmation-13':
     '九段 Affirmation 練習：連結自己、安全感、接納、能力、關係、創造、金錢、感恩、今日意圖。',
   'affirmation-14':
-    '謝謝你剛剛來找我，願意跟我分享你的想法和情緒。想要以後在你家一起創造更多溫馨的時光。',
+    '謝謝你剛剛來找我，願意跟我分享你的想法和情緒。想要以後在你家一起創造更多溫馨的時光。希望以後能帶給你一個安全舒服可以表達的空間。',
 };
 
 export function siteUrl(path: string = '/'): string {
