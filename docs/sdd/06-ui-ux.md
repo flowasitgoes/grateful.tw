@@ -44,6 +44,7 @@ P0 至少有一篇，不做空列表畫面。
 - 全站：`感恩日記｜grateful.tw`；description、og、canonical 指向 `https://grateful.tw/`
 - `og:image` 暫用九宮格圖，1200×630（方圖置中、底色 `#f2f2f2`）
 - favicon：16／32 PNG 與 `favicon.ico`；加入主畫面用 180／192／512
-- 閱讀頁：`篇名｜Day n｜grateful.tw`；description 為該篇開頭文意；canonical 為該篇 URL
+- 閱讀頁：`篇名｜感恩日記 Day n｜grateful.tw`；description 為 `感恩日記｜篇名。{該篇開頭文意}`；`og:image:alt` 為 `篇名｜感恩日記`；canonical 為該篇 URL
+- 分享／爬蟲：`build:web` 為每篇產出 `journals/:id/index.html`，靜態嵌入該篇 OG／meta／JSON-LD（縮圖暫共用 `og-image.png`），供 Facebook 等不執行 JS 的爬蟲讀取
 - `apps/web/public/robots.txt`、`sitemap.xml` 進 Web 靜態產出
 - P0 由 Vercel 提供靜態檔與 SPA fallback；不得為路由自建 REST `/api`

@@ -9,7 +9,7 @@
   "scripts": {
     "start:web": "ng serve web",
     "start:mobile": "ng serve mobile",
-    "build:web": "ng build web",
+    "build:web": "ng build web && vite-node scripts/inject-journal-og.ts",
     "build:mobile": "ng build mobile",
     "cap:sync": "cap sync",
     "check": "npm run build:web && npm run build:mobile && npx cap sync",

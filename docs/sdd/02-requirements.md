@@ -15,6 +15,7 @@
 | READ-04 | 未知 `id` 回到 `/`。 | 兩端 |
 | READ-05 | 閱讀頁 `h1` 不含「一、」等序號；畫面右下角 **Day n**。日期時間暫隱藏。 | 兩端 |
 | SEO-01 | 全站文件標題為「感恩日記｜grateful.tw」；有 description、Open Graph（含 `og:image` 1200×630）、canonical、favicon、`robots.txt`、`sitemap.xml`。 | Web |
-| SEO-02 | 每篇閱讀頁文件標題為「篇名｜Day n｜grateful.tw」，description 取該篇開頭文意。 | 兩端 |
-| DEPLOY-01 | 根目錄設定讓 Vercel 執行 `npm run build:web`（不可只跑 `ng build`），產出 `dist/apps/web/browser`。 | Web |
-| DEPLOY-02 | Vercel 上 `/journals/:id` 等前端路由落到 SPA；`robots.txt`、`sitemap.xml`、圖示與 `og-image` 以靜態檔提供。 | Web |
+| SEO-02 | 每篇閱讀頁文件標題為「篇名｜感恩日記 Day n｜grateful.tw」；description 為「感恩日記｜篇名。{該篇開頭文意}」；`og:image:alt` 為「篇名｜感恩日記」。 | 兩端 |
+| SEO-03 | Facebook／社群爬蟲抓取 `/journals/:id` 時，靜態 HTML 須含該篇 title、description、Open Graph（含 `og:url`、`og:image`）、canonical 與 Article JSON-LD；`og:image` 暫共用全站九宮格圖。 | Web |
+| DEPLOY-01 | 根目錄設定讓 Vercel 執行 `npm run build:web`（不可只跑 `ng build`），產出 `dist/apps/web/browser`；建置後寫入每篇 `journals/:id/index.html`（SPA shell＋該篇 meta）。 | Web |
+| DEPLOY-02 | Vercel 上已存在的 `journals/:id/index.html` 直接提供給爬蟲與瀏覽器；其餘前端路由落到 SPA；`robots.txt`、`sitemap.xml`、圖示與 `og-image` 以靜態檔提供。 | Web |

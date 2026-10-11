@@ -1,5 +1,6 @@
 import {
   JOURNALS,
+  findJournal,
   journalDayLabel,
   journalSubtitle,
   type Journal,
@@ -96,11 +97,93 @@ export function journalCanonicalPath(id: string): string {
 export function journalSeoTitle(id: string): string {
   const heading = journalSubtitle(id);
   const day = journalDayLabel(id);
-  return `${heading}｜${day}｜${SITE_NAME}`;
+  return `${heading}｜感恩日記 ${day}｜${SITE_NAME}`;
 }
 
 export function journalSeoDescription(id: string): string {
-  return JOURNAL_DESCRIPTIONS[id] ?? SITE_DESCRIPTION;
+  const heading = journalSubtitle(id);
+  const opening = JOURNAL_DESCRIPTIONS[id] ?? SITE_DESCRIPTION;
+  return `感恩日記｜${heading}。${opening}`;
+}
+
+export function journalOgImageAlt(id: string): string {
+  return `${journalSubtitle(id)}｜感恩日記`;
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
+function replaceMetaContent(
+  html: string,
+  attr: 'name' | 'property',
+  key: string,
+  content: string,
+): string {
+  const attrPattern = new RegExp(`\\b${attr}=["']${key}["']`, 'i');
+  return html.replace(/<meta\b[^>]*>/gi, (tag) => {
+    if (!attrPattern.test(tag)) {
+      return tag;
+    }
+    if (/\bcontent=/i.test(tag)) {
+      return tag.replace(/\bcontent=(["'])[\s\S]*?\1/i, `content="${escapeHtml(content)}"`);
+    }
+    return tag.replace(/\s*\/?>$/, ` content="${escapeHtml(content)}"$&`);
+  });
+}
+
+function replaceCanonicalHref(html: string, href: string): string {
+  return html.replace(/<link\b[^>]*>/gi, (tag) => {
+    if (!/\brel=["']canonical["']/i.test(tag)) {
+      return tag;
+    }
+    if (/\bhref=/i.test(tag)) {
+      return tag.replace(/\bhref=(["'])[\s\S]*?\1/i, `href="${escapeHtml(href)}"`);
+    }
+    return `<link rel="canonical" href="${escapeHtml(href)}" />`;
+  });
+}
+
+/** Build-time: stamp SPA shell HTML with per-journal OG／meta for crawlers (e.g. Facebook). */
+export function applyJournalShareMetaHtml(html: string, id: string): string {
+  const journal = findJournal(id);
+  if (!journal) {
+    throw new Error(`Unknown journal id: ${id}`);
+  }
+
+  const title = journalSeoTitle(id);
+  const description = journalSeoDescription(id);
+  const url = siteUrl(journalCanonicalPath(id));
+  const imageAlt = journalOgImageAlt(id);
+  const jsonLd = JSON.stringify(articleJsonLd(journal));
+
+  let out = html;
+  out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escapeHtml(title)}</title>`);
+  out = replaceMetaContent(out, 'name', 'description', description);
+  out = replaceCanonicalHref(out, url);
+  out = replaceMetaContent(out, 'property', 'og:type', 'article');
+  out = replaceMetaContent(out, 'property', 'og:title', title);
+  out = replaceMetaContent(out, 'property', 'og:description', description);
+  out = replaceMetaContent(out, 'property', 'og:url', url);
+  out = replaceMetaContent(out, 'property', 'og:image:alt', imageAlt);
+  out = replaceMetaContent(out, 'name', 'twitter:title', title);
+  out = replaceMetaContent(out, 'name', 'twitter:description', description);
+
+  const jsonLdTag = `<script type="application/ld+json" id="grateful-jsonld">${jsonLd}</script>`;
+  if (/id=["']grateful-jsonld["']/.test(out)) {
+    out = out.replace(
+      /<script\b[^>]*id=["']grateful-jsonld["'][^>]*>[\s\S]*?<\/script>/i,
+      jsonLdTag,
+    );
+  } else {
+    out = out.replace(/<\/head>/i, `    ${jsonLdTag}\n  </head>`);
+  }
+
+  return out;
 }
 
 export function websiteJsonLd(): Record<string, string> {

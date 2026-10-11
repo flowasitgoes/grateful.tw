@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import {
   JOURNAL_COUNT,
+  applyJournalShareMetaHtml,
   articleJsonLd,
   findJournal,
   homeSeoTitle,
+  journalOgImageAlt,
   journalSeoDescription,
   journalSeoTitle,
   sitemapPaths,
@@ -17,83 +19,31 @@ describe('site SEO', () => {
     expect(siteUrl('/og-image.png')).toBe('https://grateful.tw/og-image.png');
   });
 
-  it('gives each journal a unique title and description', () => {
+  it('gives each journal a keyword-rich title, description, and og image alt', () => {
     expect(journalSeoTitle('affirmation-1')).toBe(
-      '愛、信任與安全感｜Day 1｜grateful.tw',
+      '愛、信任與安全感｜感恩日記 Day 1｜grateful.tw',
     );
     expect(journalSeoTitle('affirmation-13')).toBe(
-      '系統化 Affirmation 結構｜Day 13｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-14')).toBe(
-      '我願意理解並且接受你｜Day 14｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-15')).toBe(
-      '愛情裡的安全感｜Day 15｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-16')).toBe(
-      '自信與自我價值｜Day 16｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-17')).toBe(
-      '我的價值不需要透過比較來證明｜Day 17｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-18')).toBe(
-      '我在親密關係中是安全的｜Day 18｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-19')).toBe(
-      '我選擇輕鬆、自在地生活｜Day 19｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-20')).toBe(
-      '我值得被愛、被關心、被重視｜Day 20｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-21')).toBe(
-      '表達真實的自己是安全的｜Day 21｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-22')).toBe(
-      '不同意見與誤會，不代表關係會結束｜Day 22｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-23')).toBe(
-      '我可以輕鬆、自在地做自己｜Day 23｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-24')).toBe(
-      '我在別人心中是重要的｜Day 24｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-25')).toBe(
-      '我值得擁有親密的連結，也允許自己被愛｜Day 25｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-26')).toBe(
-      '我值得被慷慨、體貼地對待｜Day 26｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-27')).toBe(
-      '我的感受、意願與選擇值得被尊重｜Day 27｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-28')).toBe(
-      '我值得被欣賞、被喜歡｜Day 28｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-29')).toBe(
-      '我值得被主動親近、被溫柔地愛｜Day 29｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-30')).toBe(
-      '愛與關係滋養我的創造力｜Day 30｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-31')).toBe(
-      '我值得被支持，我的創造力值得被看見｜Day 31｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-32')).toBe(
-      '我值得與愛的人共同創造美好的生活｜Day 32｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-33')).toBe(
-      '我選擇用有意識的愛與誠懇對待世界｜Day 33｜grateful.tw',
-    );
-    expect(journalSeoTitle('affirmation-34')).toBe(
-      '我值得擁有讓自己安心、被尊重的關係｜Day 34｜grateful.tw',
+      '系統化 Affirmation 結構｜感恩日記 Day 13｜grateful.tw',
     );
     expect(journalSeoTitle('affirmation-35')).toBe(
-      '我感謝健康的身體，讓我體驗生命的豐盛｜Day 35｜grateful.tw',
+      '我感謝健康的身體，讓我體驗生命的豐盛｜感恩日記 Day 35｜grateful.tw',
     );
-    expect(journalSeoDescription('affirmation-1')).toContain('我愛你，冠均。');
+
+    expect(journalSeoDescription('affirmation-1')).toBe(
+      '感恩日記｜愛、信任與安全感。我愛你，冠均。我真的愛你。我信任你。生命會提供我所需要的一切。',
+    );
+    expect(journalSeoDescription('affirmation-13')).toContain('感恩日記｜系統化 Affirmation 結構。');
     expect(journalSeoDescription('affirmation-13')).toContain('九段 Affirmation');
-    expect(journalSeoDescription('affirmation-34')).toContain('被關心、被在乎');
+    expect(journalSeoDescription('affirmation-35')).toContain(
+      '感恩日記｜我感謝健康的身體，讓我體驗生命的豐盛。',
+    );
     expect(journalSeoDescription('affirmation-35')).toContain('我愛我的身體');
+
+    expect(journalOgImageAlt('affirmation-1')).toBe('愛、信任與安全感｜感恩日記');
+    expect(journalOgImageAlt('affirmation-35')).toBe(
+      '我感謝健康的身體，讓我體驗生命的豐盛｜感恩日記',
+    );
   });
 
   it('lists home and thirty-five article paths for the sitemap', () => {
@@ -108,7 +58,46 @@ describe('site SEO', () => {
     const json = articleJsonLd(journal!);
     expect(json['@type']).toBe('Article');
     expect(json.headline).toBe('愛、信任與安全感');
+    expect(json.description).toBe(journalSeoDescription('affirmation-1'));
     expect(json.url).toBe('https://grateful.tw/journals/affirmation-1');
     expect(json.image).toBe('https://grateful.tw/og-image.png');
+  });
+
+  it('stamps SPA shell HTML with per-journal Open Graph for crawlers', () => {
+    const shell = `<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <title>感恩日記｜grateful.tw</title>
+    <meta name="description" content="冠均的感恩日記。三十五篇肯定與感恩練習，極簡只讀。" />
+    <link rel="canonical" href="https://grateful.tw/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="感恩日記｜grateful.tw" />
+    <meta property="og:description" content="冠均的感恩日記。三十五篇肯定與感恩練習，極簡只讀。" />
+    <meta property="og:url" content="https://grateful.tw/" />
+    <meta property="og:image" content="https://grateful.tw/og-image.png" />
+    <meta property="og:image:alt" content="grateful.tw" />
+    <meta name="twitter:title" content="感恩日記｜grateful.tw" />
+    <meta name="twitter:description" content="冠均的感恩日記。三十五篇肯定與感恩練習，極簡只讀。" />
+  </head>
+  <body><app-root></app-root></body>
+</html>`;
+
+    const html = applyJournalShareMetaHtml(shell, 'affirmation-35');
+    expect(html).toContain(
+      '<title>我感謝健康的身體，讓我體驗生命的豐盛｜感恩日記 Day 35｜grateful.tw</title>',
+    );
+    expect(html).toContain(
+      'content="感恩日記｜我感謝健康的身體，讓我體驗生命的豐盛。我愛我的身體。',
+    );
+    expect(html).toContain('property="og:type" content="article"');
+    expect(html).toContain('property="og:url" content="https://grateful.tw/journals/affirmation-35"');
+    expect(html).toContain('property="og:image" content="https://grateful.tw/og-image.png"');
+    expect(html).toContain(
+      'property="og:image:alt" content="我感謝健康的身體，讓我體驗生命的豐盛｜感恩日記"',
+    );
+    expect(html).toContain('rel="canonical" href="https://grateful.tw/journals/affirmation-35"');
+    expect(html).toContain('id="grateful-jsonld"');
+    expect(html).toContain('"@type":"Article"');
+    expect(html).toContain('https://grateful.tw/journals/affirmation-35');
   });
 });

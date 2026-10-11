@@ -10,6 +10,7 @@ import {
   homeSeoDescription,
   homeSeoTitle,
   journalCanonicalPath,
+  journalOgImageAlt,
   journalSeoDescription,
   journalSeoTitle,
   siteUrl,
@@ -31,6 +32,7 @@ export class PageMeta {
       description: homeSeoDescription(),
       url: siteUrl('/'),
       type: 'website',
+      imageAlt: SITE_NAME,
       jsonLd: websiteJsonLd(),
     });
   }
@@ -41,6 +43,7 @@ export class PageMeta {
       description: journalSeoDescription(journal.id),
       url: siteUrl(journalCanonicalPath(journal.id)),
       type: 'article',
+      imageAlt: journalOgImageAlt(journal.id),
       jsonLd: articleJsonLd(journal),
     });
   }
@@ -50,6 +53,7 @@ export class PageMeta {
     description: string;
     url: string;
     type: 'website' | 'article';
+    imageAlt: string;
     jsonLd: Record<string, string>;
   }): void {
     this.title.setTitle(input.title);
@@ -64,7 +68,7 @@ export class PageMeta {
     this.meta.updateTag({ property: 'og:image', content: siteUrl(SITE_OG_IMAGE_PATH) });
     this.meta.updateTag({ property: 'og:image:width', content: SITE_OG_IMAGE_WIDTH });
     this.meta.updateTag({ property: 'og:image:height', content: SITE_OG_IMAGE_HEIGHT });
-    this.meta.updateTag({ property: 'og:image:alt', content: SITE_NAME });
+    this.meta.updateTag({ property: 'og:image:alt', content: input.imageAlt });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: input.title });
     this.meta.updateTag({ name: 'twitter:description', content: input.description });
