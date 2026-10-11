@@ -20,9 +20,11 @@ import {
               <span class="journal-grid-sub">{{ subtitle(journal.id) }}</span>
             </span>
             <span class="journal-grid-title">{{ journal.title }}</span>
+            <!-- 暫隱藏時間
             <time class="journal-grid-time" [attr.datetime]="journal.createdAt">{{
               format(journal.createdAt)
             }}</time>
+            -->
           </a>
         </li>
       }
