@@ -2,20 +2,23 @@ import { DOCUMENT } from '@angular/common';
 import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import {
+  SITE_GOOGLE_VERIFICATION,
   SITE_NAME,
   SITE_OG_IMAGE_HEIGHT,
   SITE_OG_IMAGE_PATH,
   SITE_OG_IMAGE_WIDTH,
   articleJsonLd,
+  homeJsonLd,
   homeSeoDescription,
   homeSeoTitle,
   journalCanonicalPath,
   journalOgImageAlt,
+  journalOgImagePath,
   journalSeoDescription,
   journalSeoTitle,
   siteUrl,
-  websiteJsonLd,
   type Journal,
+  type JsonLd,
 } from '@app/contracts';
 
 const JSON_LD_ID = 'grateful-jsonld';
@@ -32,8 +35,9 @@ export class PageMeta {
       description: homeSeoDescription(),
       url: siteUrl('/'),
       type: 'website',
+      image: siteUrl(SITE_OG_IMAGE_PATH),
       imageAlt: SITE_NAME,
-      jsonLd: websiteJsonLd(),
+      jsonLd: homeJsonLd(),
     });
   }
 
@@ -43,6 +47,7 @@ export class PageMeta {
       description: journalSeoDescription(journal.id),
       url: siteUrl(journalCanonicalPath(journal.id)),
       type: 'article',
+      image: siteUrl(journalOgImagePath(journal.id)),
       imageAlt: journalOgImageAlt(journal.id),
       jsonLd: articleJsonLd(journal),
     });
@@ -53,26 +58,33 @@ export class PageMeta {
     description: string;
     url: string;
     type: 'website' | 'article';
+    image: string;
     imageAlt: string;
-    jsonLd: Record<string, string>;
+    jsonLd: JsonLd;
   }): void {
     this.title.setTitle(input.title);
     this.meta.updateTag({ name: 'description', content: input.description });
     this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    if (SITE_GOOGLE_VERIFICATION) {
+      this.meta.updateTag({
+        name: 'google-site-verification',
+        content: SITE_GOOGLE_VERIFICATION,
+      });
+    }
     this.meta.updateTag({ property: 'og:title', content: input.title });
     this.meta.updateTag({ property: 'og:description', content: input.description });
     this.meta.updateTag({ property: 'og:url', content: input.url });
     this.meta.updateTag({ property: 'og:type', content: input.type });
     this.meta.updateTag({ property: 'og:locale', content: 'zh_TW' });
     this.meta.updateTag({ property: 'og:site_name', content: SITE_NAME });
-    this.meta.updateTag({ property: 'og:image', content: siteUrl(SITE_OG_IMAGE_PATH) });
+    this.meta.updateTag({ property: 'og:image', content: input.image });
     this.meta.updateTag({ property: 'og:image:width', content: SITE_OG_IMAGE_WIDTH });
     this.meta.updateTag({ property: 'og:image:height', content: SITE_OG_IMAGE_HEIGHT });
     this.meta.updateTag({ property: 'og:image:alt', content: input.imageAlt });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: input.title });
     this.meta.updateTag({ name: 'twitter:description', content: input.description });
-    this.meta.updateTag({ name: 'twitter:image', content: siteUrl(SITE_OG_IMAGE_PATH) });
+    this.meta.updateTag({ name: 'twitter:image', content: input.image });
     this.setCanonical(input.url);
     this.setJsonLd(input.jsonLd);
   }
@@ -87,7 +99,7 @@ export class PageMeta {
     link.href = url;
   }
 
-  private setJsonLd(data: Record<string, string>): void {
+  private setJsonLd(data: JsonLd): void {
     let script = this.document.getElementById(JSON_LD_ID) as HTMLScriptElement | null;
     if (!script) {
       script = this.document.createElement('script');

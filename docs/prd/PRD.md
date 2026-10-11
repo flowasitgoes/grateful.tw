@@ -22,8 +22,9 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | P0 | 每一篇有建立的日期與時間（資料仍保留；畫面暫隱藏不顯示）。 | 列表與閱讀頁 |
 | P0 | 右上漢堡從右側滑出全高選單；第一列為 IG 圖示＋「riddles.tw」，開 https://www.instagram.com/riddles.tw | 選單 |
 | P0 | 十一章、每日精簡版、系統化結構，以及 Day 14～35 短箋，共 35 篇只讀文稿。 | 只讀 |
-| P0 | 全站與每篇有獨立文件標題與 description；閱讀頁標題含「感恩日記 Day n」，description 前綴「感恩日記｜篇名」，og:image:alt 為「篇名｜感恩日記」。 | SEO |
-| P0 | 分享到 Facebook 等時，個別日記連結的靜態 HTML 含該篇 title／description／OG（縮圖暫共用全站 og:image）。 | SEO |
+| P0 | 全站與每篇有獨立文件標題與 description；閱讀頁標題含「感恩日記 Day n」，description 含主題詞，og:image:alt 為「篇名｜感恩日記」。 | SEO |
+| P0 | 分享到 Facebook 等時，個別日記連結的靜態 HTML 含該篇 title／description／OG；每篇獨立 1200×630 字卡縮圖。 | SEO |
+| P0 | 閱讀頁有上一篇／下一篇；Article／首頁 ItemList JSON-LD；Search Console 追蹤核心詞並可提交 sitemap。 | SEO |
 | P0 | 靜態 Web 能從 GitHub 部署到 Vercel（grateful.tw）。 | 部署 |
 | P1 | 漢堡選單其他項目 | 不做 |
 | P1 | 新增／編輯日記 | 不做 |
@@ -73,3 +74,4 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | 2026-10-12 | 冠均 | 新增 Day 35：我感謝健康的身體，讓我體驗生命的豐盛 |
 | 2026-10-12 | 冠均 | 閱讀頁 SEO：標題／description／og:image:alt 加入「感恩日記」關鍵字 |
 | 2026-10-12 | 冠均 | 建置產出每篇靜態 HTML，供 Facebook 等爬蟲讀取個別 OG／meta |
+| 2026-10-12 | 冠均 | SEO：主題詞、獨立 og 字卡、JSON-LD、上下篇、Search Console 核心詞 |

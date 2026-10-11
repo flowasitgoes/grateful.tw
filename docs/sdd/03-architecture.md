@@ -63,7 +63,7 @@
 ### `apps/web`
 
 - 桌面優先 SPA。
-- 建置：`npm run build:web`（`ng build web` 後跑 `scripts/inject-journal-og.ts`）→ `dist/apps/web/browser`，並寫入每篇 `journals/:id/index.html` 供社群爬蟲讀 OG。不可只跑 `ng build`（workspace 還有 mobile）。
+- 建置：`npm run build:web`（`ng build web` → `scripts/generate-journal-og-images.ts` → `scripts/inject-journal-og.ts`）→ `dist/apps/web/browser`，寫入 `/og/:id.png` 與每篇 `journals/:id/index.html`。不可只跑 `ng build`（workspace 還有 mobile）。
 - P0 部署：**Vercel** 連 GitHub `main`。根目錄 `vercel.json` 指定 build 與 output。Framework 用 Other／不自動偵測 Angular 的裸 `ng build`。
 - 網域：`grateful.tw` 指到 Vercel。
 - 不要引入 `@ionic/angular`、`@capacitor/*`。

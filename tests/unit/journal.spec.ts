@@ -3,6 +3,7 @@ import {
   JOURNAL_COUNT,
   JOURNALS,
   formatJournalDateTime,
+  journalAdjacent,
   journalDayLabel,
   journalSubtitle,
   journalsNewestFirst,
@@ -99,5 +100,16 @@ describe('journalSubtitle', () => {
     expect(journalSubtitle('affirmation-33')).toBe('我選擇用有意識的愛與誠懇對待世界');
     expect(journalSubtitle('affirmation-34')).toBe('我值得擁有讓自己安心、被尊重的關係');
     expect(journalSubtitle('affirmation-35')).toBe('我感謝健康的身體，讓我體驗生命的豐盛');
+  });
+});
+
+describe('journalAdjacent', () => {
+  it('walks Day order for previous and next links', () => {
+    expect(journalAdjacent('affirmation-1').prev).toBeUndefined();
+    expect(journalAdjacent('affirmation-1').next?.id).toBe('affirmation-2');
+    expect(journalAdjacent('affirmation-35').prev?.id).toBe('affirmation-34');
+    expect(journalAdjacent('affirmation-35').next).toBeUndefined();
+    expect(journalAdjacent('affirmation-20').prev?.id).toBe('affirmation-19');
+    expect(journalAdjacent('affirmation-20').next?.id).toBe('affirmation-21');
   });
 });

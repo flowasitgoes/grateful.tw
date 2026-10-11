@@ -192,6 +192,43 @@ body.shell-menu-open {
   margin: 0 0 2rem;
 }
 
+.journal-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.journal-pager-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 46%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.journal-pager-link--next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.journal-pager-link--empty {
+  pointer-events: none;
+}
+
+.journal-pager-label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.journal-pager-meta {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
 .journal-corner {
   position: fixed;
   right: 1.25rem;

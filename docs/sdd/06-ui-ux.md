@@ -34,6 +34,7 @@
 - 標題為篇名，不含「一、」等序號
 - 畫面右下角：**Day n**；建立日期時間暫隱藏
 - 其後為**該篇**全文（不是把三十五篇合成一頁）
+- 正文下方「上一篇／下一篇」：依 Day 序相鄰；文案為「上一篇／下一篇」＋ `Day n · 篇名`；可點進相鄰閱讀頁
 
 ## 空狀態
 
@@ -42,9 +43,11 @@ P0 至少有一篇，不做空列表畫面。
 ## SEO
 
 - 全站：`感恩日記｜grateful.tw`；description、og、canonical 指向 `https://grateful.tw/`
-- `og:image` 暫用九宮格圖，1200×630（方圖置中、底色 `#f2f2f2`）
+- 首頁預設 `og:image`：`/og-image.png`（九宮格，1200×630）；首頁 JSON-LD 為 WebSite＋ItemList
 - favicon：16／32 PNG 與 `favicon.ico`；加入主畫面用 180／192／512
-- 閱讀頁：`篇名｜感恩日記 Day n｜grateful.tw`；description 為 `感恩日記｜篇名。{該篇開頭文意}`；`og:image:alt` 為 `篇名｜感恩日記`；canonical 為該篇 URL
-- 分享／爬蟲：`build:web` 為每篇產出 `journals/:id/index.html`，靜態嵌入該篇 OG／meta／JSON-LD（縮圖暫共用 `og-image.png`），供 Facebook 等不執行 JS 的爬蟲讀取
+- 閱讀頁：`篇名｜感恩日記 Day n｜grateful.tw`；description 為 `感恩日記｜篇名。{開頭文意} 適合每日感恩日記與肯定語練習，主題：{主題詞}。`；`og:image` 為 `/og/:id.png`；`og:image:alt` 為 `篇名｜感恩日記`；canonical 為該篇 URL
+- Article JSON-LD：含 `author`（冠均）、`keywords`、`about`
+- 分享／爬蟲：`build:web` 產每篇字卡 PNG 與 `journals/:id/index.html`（SPA shell＋該篇 meta／JSON-LD）
+- Search Console 核心追蹤詞：感恩日記、每日感恩、肯定語、Affirmation、自愛、安全感、親密關係、創造力；提交 `sitemap.xml`；可選 `SITE_GOOGLE_VERIFICATION`
 - `apps/web/public/robots.txt`、`sitemap.xml` 進 Web 靜態產出
 - P0 由 Vercel 提供靜態檔與 SPA fallback；不得為路由自建 REST `/api`

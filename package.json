@@ -9,7 +9,7 @@
   "scripts": {
     "start:web": "ng serve web",
     "start:mobile": "ng serve mobile",
-    "build:web": "ng build web && vite-node scripts/inject-journal-og.ts",
+    "build:web": "ng build web && vite-node scripts/generate-journal-og-images.ts && vite-node scripts/inject-journal-og.ts",
     "build:mobile": "ng build mobile",
     "cap:sync": "cap sync",
     "check": "npm run build:web && npm run build:mobile && npx cap sync",
@@ -39,9 +39,10 @@
     "@angular/cli": "20.3.36",
     "@angular/compiler-cli": "20.3.30",
     "@capacitor/cli": "8.5.1",
-    "typescript": "5.8.3",
-    "vitest": "3.2.4",
     "@firebase/rules-unit-testing": "5.0.2",
-    "firebase-tools": "15.30.0"
+    "firebase-tools": "15.30.0",
+    "sharp": "^0.34.4",
+    "typescript": "5.8.3",
+    "vitest": "3.2.4"
   }
 }

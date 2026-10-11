@@ -133,6 +133,26 @@ export function findJournal(id: string): Journal | undefined {
   return JOURNALS.find((item) => item.id === id);
 }
 
+export function journalDayNumber(id: string): number {
+  const n = Number(id.replace(/^affirmation-/, ''));
+  return Number.isFinite(n) ? n : NaN;
+}
+
+/** Adjacent by Day number（Day 1…N），供閱讀頁上一篇／下一篇。 */
+export function journalAdjacent(id: string): {
+  prev: Journal | undefined;
+  next: Journal | undefined;
+} {
+  const n = journalDayNumber(id);
+  if (!Number.isFinite(n)) {
+    return { prev: undefined, next: undefined };
+  }
+  return {
+    prev: n > 1 ? findJournal(`affirmation-${n - 1}`) : undefined,
+    next: n < JOURNAL_COUNT ? findJournal(`affirmation-${n + 1}`) : undefined,
+  };
+}
+
 export function journalDayLabel(id: string): string {
   return `Day ${id.replace(/^affirmation-/, '')}`;
 }

@@ -19,6 +19,10 @@ describe('first journal', () => {
     expect(html).not.toContain('<input');
     expect(html).not.toContain('儲存');
     expect(html).toContain('暫隱藏時間');
+    expect(html).toContain('journal-pager');
+    expect(html).toContain('上一篇');
+    expect(html).toContain('下一篇');
+    expect(html).toContain('routerLink');
   });
 
   it('splits eleven chapters, daily short, structure, and later notes into thirty-five articles', () => {

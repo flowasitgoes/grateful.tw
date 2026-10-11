@@ -8,11 +8,67 @@ import {
 
 export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
+export const SITE_AUTHOR = '冠均';
 export const SITE_DESCRIPTION =
   '冠均的感恩日記。三十五篇肯定與感恩練習，極簡只讀。';
+/** 填入 Google Search Console 驗證碼後會輸出 meta；空白則不輸出。 */
+export const SITE_GOOGLE_VERIFICATION = '';
 export const SITE_OG_IMAGE_PATH = '/og-image.png';
 export const SITE_OG_IMAGE_WIDTH = '1200';
 export const SITE_OG_IMAGE_HEIGHT = '630';
+
+/** Search Console 優先追蹤的核心查詢詞（5～8 個）。 */
+export const CORE_SEARCH_KEYWORDS = [
+  '感恩日記',
+  '每日感恩',
+  '肯定語',
+  'Affirmation',
+  '自愛',
+  '安全感',
+  '親密關係',
+  '創造力',
+] as const;
+
+export type JsonLd = Record<string, unknown>;
+
+/** 每篇 1～2 個主題詞，供 description 與 JSON-LD keywords／about。 */
+export const JOURNAL_KEYWORDS: Readonly<Record<string, readonly string[]>> = {
+  'affirmation-1': ['安全感', '肯定語'],
+  'affirmation-2': ['自愛', '自我接納'],
+  'affirmation-3': ['內在小孩', '療癒'],
+  'affirmation-4': ['親密關係', '肯定語'],
+  'affirmation-5': ['自信', '肯定語'],
+  'affirmation-6': ['平靜', '專注'],
+  'affirmation-7': ['創造力', '志向'],
+  'affirmation-8': ['豐盛', '金錢'],
+  'affirmation-9': ['感恩', '接受'],
+  'affirmation-10': ['祝福', '伙伴'],
+  'affirmation-11': ['祝福', '孩子'],
+  'affirmation-12': ['每日感恩', '肯定語'],
+  'affirmation-13': ['Affirmation', '肯定語練習'],
+  'affirmation-14': ['理解', '接受'],
+  'affirmation-15': ['安全感', '親密關係'],
+  'affirmation-16': ['自信', '自我價值'],
+  'affirmation-17': ['自我價值', '被愛'],
+  'affirmation-18': ['安全感', '親密關係'],
+  'affirmation-19': ['自在', '肯定語'],
+  'affirmation-20': ['被愛', '被關心'],
+  'affirmation-21': ['表達', '安全感'],
+  'affirmation-22': ['溝通', '親密關係'],
+  'affirmation-23': ['做自己', '自在'],
+  'affirmation-24': ['被重視', '親密關係'],
+  'affirmation-25': ['親密連結', '被愛'],
+  'affirmation-26': ['被照顧', '體貼'],
+  'affirmation-27': ['被尊重', '感受'],
+  'affirmation-28': ['被欣賞', '被喜歡'],
+  'affirmation-29': ['被愛', '親密'],
+  'affirmation-30': ['創造力', '關係'],
+  'affirmation-31': ['創造力', '被看見'],
+  'affirmation-32': ['共同生活', '親密關係'],
+  'affirmation-33': ['有意識的愛', '善意'],
+  'affirmation-34': ['安全感', '被尊重'],
+  'affirmation-35': ['健康', '感恩'],
+};
 
 export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
   'affirmation-1': '我愛你，冠均。我真的愛你。我信任你。生命會提供我所需要的一切。',
@@ -94,6 +150,14 @@ export function journalCanonicalPath(id: string): string {
   return `/journals/${id}`;
 }
 
+export function journalOgImagePath(id: string): string {
+  return `/og/${id}.jpg`;
+}
+
+export function journalKeywords(id: string): readonly string[] {
+  return JOURNAL_KEYWORDS[id] ?? ['感恩日記', '肯定語'];
+}
+
 export function journalSeoTitle(id: string): string {
   const heading = journalSubtitle(id);
   const day = journalDayLabel(id);
@@ -103,7 +167,8 @@ export function journalSeoTitle(id: string): string {
 export function journalSeoDescription(id: string): string {
   const heading = journalSubtitle(id);
   const opening = JOURNAL_DESCRIPTIONS[id] ?? SITE_DESCRIPTION;
-  return `感恩日記｜${heading}。${opening}`;
+  const topics = journalKeywords(id).join('、');
+  return `感恩日記｜${heading}。${opening} 適合每日感恩日記與肯定語練習，主題：${topics}。`;
 }
 
 export function journalOgImageAlt(id: string): string {
@@ -158,6 +223,7 @@ export function applyJournalShareMetaHtml(html: string, id: string): string {
   const title = journalSeoTitle(id);
   const description = journalSeoDescription(id);
   const url = siteUrl(journalCanonicalPath(id));
+  const image = siteUrl(journalOgImagePath(id));
   const imageAlt = journalOgImageAlt(id);
   const jsonLd = JSON.stringify(articleJsonLd(journal));
 
@@ -169,9 +235,11 @@ export function applyJournalShareMetaHtml(html: string, id: string): string {
   out = replaceMetaContent(out, 'property', 'og:title', title);
   out = replaceMetaContent(out, 'property', 'og:description', description);
   out = replaceMetaContent(out, 'property', 'og:url', url);
+  out = replaceMetaContent(out, 'property', 'og:image', image);
   out = replaceMetaContent(out, 'property', 'og:image:alt', imageAlt);
   out = replaceMetaContent(out, 'name', 'twitter:title', title);
   out = replaceMetaContent(out, 'name', 'twitter:description', description);
+  out = replaceMetaContent(out, 'name', 'twitter:image', image);
 
   const jsonLdTag = `<script type="application/ld+json" id="grateful-jsonld">${jsonLd}</script>`;
   if (/id=["']grateful-jsonld["']/.test(out)) {
@@ -186,9 +254,8 @@ export function applyJournalShareMetaHtml(html: string, id: string): string {
   return out;
 }
 
-export function websiteJsonLd(): Record<string, string> {
+export function websiteJsonLd(): JsonLd {
   return {
-    '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: SITE_NAME,
     url: siteUrl('/'),
@@ -198,7 +265,29 @@ export function websiteJsonLd(): Record<string, string> {
   };
 }
 
-export function articleJsonLd(journal: Journal): Record<string, string> {
+export function itemListJsonLd(): JsonLd {
+  return {
+    '@type': 'ItemList',
+    name: '感恩日記',
+    numberOfItems: JOURNALS.length,
+    itemListElement: JOURNALS.map((journal, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: journalSubtitle(journal.id),
+      url: siteUrl(journalCanonicalPath(journal.id)),
+    })),
+  };
+}
+
+export function homeJsonLd(): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [websiteJsonLd(), itemListJsonLd()],
+  };
+}
+
+export function articleJsonLd(journal: Journal): JsonLd {
+  const keywords = journalKeywords(journal.id);
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -207,7 +296,16 @@ export function articleJsonLd(journal: Journal): Record<string, string> {
     datePublished: journal.createdAt,
     inLanguage: 'zh-Hant',
     url: siteUrl(journalCanonicalPath(journal.id)),
-    image: siteUrl(SITE_OG_IMAGE_PATH),
+    image: siteUrl(journalOgImagePath(journal.id)),
+    author: {
+      '@type': 'Person',
+      name: SITE_AUTHOR,
+    },
+    keywords: keywords.join(', '),
+    about: keywords.map((name) => ({
+      '@type': 'Thing',
+      name,
+    })),
   };
 }
 
