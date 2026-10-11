@@ -48,7 +48,7 @@ describe('site SEO', () => {
     expect(journalSeoDescription('affirmation-35')).toContain('主題：健康、感恩。');
 
     expect(journalOgImageAlt('affirmation-1')).toBe('愛、信任與安全感｜感恩日記');
-    expect(journalOgImagePath('affirmation-35')).toBe('/og/affirmation-35.png');
+    expect(journalOgImagePath('affirmation-35')).toBe('/og/affirmation-35.jpg');
   });
 
   it('lists home and thirty-five article paths for the sitemap', () => {
@@ -65,7 +65,7 @@ describe('site SEO', () => {
     expect(json.headline).toBe('愛、信任與安全感');
     expect(json.description).toBe(journalSeoDescription('affirmation-1'));
     expect(json.url).toBe('https://grateful.tw/journals/affirmation-1');
-    expect(json.image).toBe('https://grateful.tw/og/affirmation-1.png');
+    expect(json.image).toBe('https://grateful.tw/og/affirmation-1.jpg');
     expect(json.author).toEqual({ '@type': 'Person', name: '冠均' });
     expect(json.keywords).toBe('安全感, 肯定語');
     expect(json.about).toEqual([
@@ -116,10 +116,10 @@ describe('site SEO', () => {
     expect(html).toContain('property="og:type" content="article"');
     expect(html).toContain('property="og:url" content="https://grateful.tw/journals/affirmation-35"');
     expect(html).toContain(
-      'property="og:image" content="https://grateful.tw/og/affirmation-35.png"',
+      'property="og:image" content="https://grateful.tw/og/affirmation-35.jpg"',
     );
     expect(html).toContain(
-      'name="twitter:image" content="https://grateful.tw/og/affirmation-35.png"',
+      'name="twitter:image" content="https://grateful.tw/og/affirmation-35.jpg"',
     );
     expect(html).toContain('id="grateful-jsonld"');
     expect(html).toContain('"@type":"Article"');

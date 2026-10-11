@@ -57,8 +57,8 @@ mkdirSync(outDir, { recursive: true });
 
 for (const journal of JOURNALS) {
   const svg = Buffer.from(buildSvg(journal.id));
-  const png = await sharp(svg).png().toBuffer();
-  writeFileSync(join(outDir, `${journal.id}.png`), png);
+  const jpg = await sharp(svg).jpeg({ quality: 85, mozjpeg: true }).toBuffer();
+  writeFileSync(join(outDir, `${journal.id}.jpg`), jpg);
 }
 
-console.log(`generate-journal-og-images: wrote ${JOURNALS.length} PNGs to ${outDir}`);
+console.log(`generate-journal-og-images: wrote ${JOURNALS.length} JPEGs to ${outDir}`);
