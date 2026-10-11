@@ -1,4 +1,35 @@
+# grateful.tw — allow search engines and AI answer crawlers
 User-agent: *
 Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# AI discovery map: https://grateful.tw/llms.txt
+# Full citation source: https://grateful.tw/llms-full.txt
 
 Sitemap: https://grateful.tw/sitemap.xml

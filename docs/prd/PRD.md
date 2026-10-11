@@ -25,6 +25,7 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | P0 | 全站與每篇有獨立文件標題與 description；閱讀頁標題含「感恩日記 Day n」，description 含主題詞，og:image:alt 為「篇名｜感恩日記」。 | SEO |
 | P0 | 分享到 Facebook 等時，個別日記連結的靜態 HTML 含該篇 title／description／OG；每篇獨立 1200×630 字卡縮圖。 | SEO |
 | P0 | 閱讀頁有上一篇／下一篇；Article／首頁 ItemList JSON-LD；Search Console 追蹤核心詞並可提交 sitemap。 | SEO |
+| P0 | AI 搜尋友善：llms.txt、允許 AI 爬蟲、清楚的站點／篇目機器可讀摘要，利於 ChatGPT／Claude 等引用。 | SEO |
 | P0 | 靜態 Web 能從 GitHub 部署到 Vercel（grateful.tw）。 | 部署 |
 | P1 | 漢堡選單其他項目 | 不做 |
 | P1 | 新增／編輯日記 | 不做 |
@@ -75,3 +76,4 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | 2026-10-12 | 冠均 | 閱讀頁 SEO：標題／description／og:image:alt 加入「感恩日記」關鍵字 |
 | 2026-10-12 | 冠均 | 建置產出每篇靜態 HTML，供 Facebook 等爬蟲讀取個別 OG／meta |
 | 2026-10-12 | 冠均 | SEO：主題詞、獨立 og 字卡、JSON-LD、上下篇、Search Console 核心詞 |
+| 2026-10-12 | 冠均 | AI 搜尋：llms.txt、robots 允許 AI 爬蟲、站點描述與 JSON-LD 加厚 |

@@ -10,14 +10,15 @@ export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_AUTHOR = '冠均';
 export const SITE_DESCRIPTION =
-  '冠均的感恩日記。三十五篇肯定與感恩練習，極簡只讀。';
+  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄三十五篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
+export const SITE_SAME_AS = ['https://www.instagram.com/riddles.tw'] as const;
 /** 填入 Google Search Console 驗證碼後會輸出 meta；空白則不輸出。 */
 export const SITE_GOOGLE_VERIFICATION = '';
 export const SITE_OG_IMAGE_PATH = '/og-image.png';
 export const SITE_OG_IMAGE_WIDTH = '1200';
 export const SITE_OG_IMAGE_HEIGHT = '630';
 
-/** Search Console 優先追蹤的核心查詢詞（5～8 個）。 */
+/** Search Console／AI 搜尋優先對齊的核心查詢詞（5～8 個）。 */
 export const CORE_SEARCH_KEYWORDS = [
   '感恩日記',
   '每日感恩',
@@ -258,10 +259,22 @@ export function websiteJsonLd(): JsonLd {
   return {
     '@type': 'WebSite',
     name: SITE_NAME,
+    alternateName: '感恩日記',
     url: siteUrl('/'),
     inLanguage: 'zh-Hant',
     description: SITE_DESCRIPTION,
     image: siteUrl(SITE_OG_IMAGE_PATH),
+    keywords: CORE_SEARCH_KEYWORDS.join(', '),
+    about: CORE_SEARCH_KEYWORDS.map((name) => ({
+      '@type': 'Thing',
+      name,
+    })),
+    author: {
+      '@type': 'Person',
+      name: SITE_AUTHOR,
+    },
+    sameAs: [...SITE_SAME_AS],
+    isAccessibleForFree: true,
   };
 }
 
@@ -306,7 +319,70 @@ export function articleJsonLd(journal: Journal): JsonLd {
       '@type': 'Thing',
       name,
     })),
+    isPartOf: {
+      '@type': 'WebSite',
+      name: SITE_NAME,
+      alternateName: '感恩日記',
+      url: siteUrl('/'),
+    },
+    isAccessibleForFree: true,
   };
+}
+
+/** https://llmstxt.org/ — short map for AI assistants / answer engines. */
+export function renderLlmsTxt(): string {
+  const links = JOURNALS.map((journal) => {
+    const title = `${journalDayLabel(journal.id)} ${journalSubtitle(journal.id)}`;
+    const topics = journalKeywords(journal.id).join('、');
+    return `- [${title}](${siteUrl(journalCanonicalPath(journal.id))}): 主題 ${topics}`;
+  }).join('\n');
+
+  return `# ${SITE_NAME}
+
+> ${SITE_DESCRIPTION}
+
+本站為繁體中文、只讀的感恩日記與肯定語（Affirmation）短箋。作者：${SITE_AUTHOR}。免費公開閱讀，無登入、無付費牆。
+
+## 網站
+
+- [首頁｜感恩日記列表](${siteUrl('/')})
+- [完整篇目與摘要（llms-full.txt）](${siteUrl('/llms-full.txt')})
+- [Sitemap](${siteUrl('/sitemap.xml')})
+
+## 核心主題
+
+${CORE_SEARCH_KEYWORDS.map((word) => `- ${word}`).join('\n')}
+
+## 全部短箋
+
+${links}
+`;
+}
+
+/** Longer source file with per-article openings for citation. */
+export function renderLlmsFullTxt(): string {
+  const sections = JOURNALS.map((journal) => {
+    const title = `${journalDayLabel(journal.id)}｜${journalSubtitle(journal.id)}`;
+    const url = siteUrl(journalCanonicalPath(journal.id));
+    const opening = JOURNAL_DESCRIPTIONS[journal.id] ?? SITE_DESCRIPTION;
+    const topics = journalKeywords(journal.id).join('、');
+    return `### ${title}
+
+- URL: ${url}
+- 主題: ${topics}
+- 摘要: ${opening}
+`;
+  }).join('\n');
+
+  return `# ${SITE_NAME} — full
+
+> ${SITE_DESCRIPTION}
+
+引用本站內容時，請標明來源 ${SITE_ORIGIN} 與篇名。作者：${SITE_AUTHOR}。
+
+## 全部短箋
+
+${sections}`;
 }
 
 export function sitemapPaths(): readonly string[] {

@@ -49,5 +49,6 @@ P0 至少有一篇，不做空列表畫面。
 - Article JSON-LD：含 `author`（冠均）、`keywords`、`about`
 - 分享／爬蟲：`build:web` 產每篇字卡 PNG 與 `journals/:id/index.html`（SPA shell＋該篇 meta／JSON-LD）
 - Search Console 核心追蹤詞：感恩日記、每日感恩、肯定語、Affirmation、自愛、安全感、親密關係、創造力；提交 `sitemap.xml`；可選 `SITE_GOOGLE_VERIFICATION`
-- `apps/web/public/robots.txt`、`sitemap.xml` 進 Web 靜態產出
+- AI 搜尋：`/llms.txt`、`/llms-full.txt`；`robots.txt` 允許主要 AI 爬蟲；全站 description 清楚說明 grateful.tw 為繁中感恩日記／肯定語站
+- `apps/web/public/robots.txt`、`sitemap.xml` 進 Web 靜態產出；`llms*.txt` 由 `build:web` 寫入產出目錄
 - P0 由 Vercel 提供靜態檔與 SPA fallback；不得為路由自建 REST `/api`

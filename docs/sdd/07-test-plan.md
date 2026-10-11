@@ -8,6 +8,7 @@
 | 分享用靜態 HTML 含該篇 OG／meta／JSON-LD | `tests/unit` |
 | Article author／keywords；首頁 ItemList；上下篇導覽 | `tests/unit` |
 | `build:web` 產出每篇 `/og/:id.jpg` | `npm run build:web` |
+| `llms.txt`／`llms-full.txt` 內容與 AI robots 允許 | `tests/unit`、`npm run build:web` |
 | Instagram 外連文案與網址 | `tests/unit` |
 | Web 生產建置（Vercel 同指令） | `npm run build:web` |
 

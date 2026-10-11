@@ -39,6 +39,7 @@ export class PageMeta {
       imageAlt: SITE_NAME,
       jsonLd: homeJsonLd(),
     });
+    this.setLlmsAlternate(siteUrl('/llms.txt'));
   }
 
   setJournal(journal: Journal): void {
@@ -97,6 +98,20 @@ export class PageMeta {
       this.document.head.appendChild(link);
     }
     link.href = url;
+  }
+
+  private setLlmsAlternate(href: string): void {
+    let link = this.document.querySelector<HTMLLinkElement>(
+      'link[rel="alternate"][type="text/plain"][title="llms.txt"]',
+    );
+    if (!link) {
+      link = this.document.createElement('link');
+      link.rel = 'alternate';
+      link.type = 'text/plain';
+      link.title = 'llms.txt';
+      this.document.head.appendChild(link);
+    }
+    link.href = href;
   }
 
   private setJsonLd(data: JsonLd): void {

@@ -20,5 +20,6 @@
 | SEO-03 | Facebook／社群爬蟲抓取 `/journals/:id` 時，靜態 HTML 須含該篇 title、description、Open Graph（含該篇 `og:image` `/og/:id.jpg`）、canonical 與 Article JSON-LD（含 author、keywords、about）。 | Web |
 | SEO-04 | `build:web` 為每篇產出 1200×630 字卡 JPEG（篇名＋「感恩日記」＋ Day），路徑 `/og/:id.jpg`。全站仍保留 `/og-image.png` 作首頁預設。 | Web |
 | SEO-05 | Search Console：提交 `sitemap.xml`；追蹤核心詞「感恩日記、每日感恩、肯定語、Affirmation、自愛、安全感、親密關係、創造力」。可選填 `SITE_GOOGLE_VERIFICATION` 輸出驗證 meta。 | Web |
-| DEPLOY-01 | 根目錄設定讓 Vercel 執行 `npm run build:web`（不可只跑 `ng build`），產出 `dist/apps/web/browser`；建置後產每篇 og PNG，並寫入 `journals/:id/index.html`（SPA shell＋該篇 meta）。 | Web |
-| DEPLOY-02 | Vercel 上已存在的 `journals/:id/index.html` 與 `/og/:id.jpg` 直接提供；其餘前端路由落到 SPA；`robots.txt`、`sitemap.xml`、圖示與預設 `og-image` 以靜態檔提供。 | Web |
+| SEO-06 | AI 搜尋／引用：`robots.txt` 明確允許 GPTBot、ClaudeBot、PerplexityBot 等；建置產出 `/llms.txt` 與 `/llms-full.txt`（站點說明、核心主題、全部短箋連結與摘要）；首頁 description 清楚陳述「誰／做什麼／主題」；JSON-LD 含 alternateName、sameAs、isAccessibleForFree。 | Web |
+| DEPLOY-01 | 根目錄設定讓 Vercel 執行 `npm run build:web`（不可只跑 `ng build`），產出 `dist/apps/web/browser`；建置後產每篇 og JPEG、`llms.txt`／`llms-full.txt`，並寫入 `journals/:id/index.html`（SPA shell＋該篇 meta）。 | Web |
+| DEPLOY-02 | Vercel 上已存在的 `journals/:id/index.html`、`/og/:id.jpg`、`llms.txt`、`llms-full.txt` 直接提供；其餘前端路由落到 SPA；`robots.txt`、`sitemap.xml`、圖示與預設 `og-image` 以靜態檔提供。 | Web |

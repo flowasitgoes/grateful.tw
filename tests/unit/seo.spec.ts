@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   CORE_SEARCH_KEYWORDS,
   JOURNAL_COUNT,
+  SITE_DESCRIPTION,
   applyJournalShareMetaHtml,
   articleJsonLd,
   findJournal,
@@ -12,13 +13,19 @@ import {
   journalOgImagePath,
   journalSeoDescription,
   journalSeoTitle,
+  renderLlmsFullTxt,
+  renderLlmsTxt,
   sitemapPaths,
   siteUrl,
+  websiteJsonLd,
 } from '../../shared/contracts';
 
 describe('site SEO', () => {
   it('names the home document 感恩日記｜grateful.tw', () => {
     expect(homeSeoTitle()).toBe('感恩日記｜grateful.tw');
+    expect(SITE_DESCRIPTION).toContain('grateful.tw');
+    expect(SITE_DESCRIPTION).toContain('肯定語');
+    expect(SITE_DESCRIPTION).toContain('Affirmation');
     expect(siteUrl('/')).toBe('https://grateful.tw/');
     expect(siteUrl('/og-image.png')).toBe('https://grateful.tw/og-image.png');
   });
@@ -72,6 +79,13 @@ describe('site SEO', () => {
       { '@type': 'Thing', name: '安全感' },
       { '@type': 'Thing', name: '肯定語' },
     ]);
+    expect(json.isAccessibleForFree).toBe(true);
+    expect(json.isPartOf).toEqual({
+      '@type': 'WebSite',
+      name: 'grateful.tw',
+      alternateName: '感恩日記',
+      url: 'https://grateful.tw/',
+    });
   });
 
   it('builds home JSON-LD with WebSite and ItemList graph', () => {
@@ -80,12 +94,30 @@ describe('site SEO', () => {
     const graph = json['@graph'] as Array<Record<string, unknown>>;
     expect(graph).toHaveLength(2);
     expect(graph[0]?.['@type']).toBe('WebSite');
+    expect(graph[0]?.alternateName).toBe('感恩日記');
+    expect(graph[0]?.sameAs).toEqual(['https://www.instagram.com/riddles.tw']);
+    expect(graph[0]?.isAccessibleForFree).toBe(true);
     expect(graph[1]?.['@type']).toBe('ItemList');
     expect(graph[1]?.numberOfItems).toBe(JOURNAL_COUNT);
     const items = graph[1]?.itemListElement as Array<Record<string, unknown>>;
     expect(items).toHaveLength(JOURNAL_COUNT);
     expect(items[0]?.name).toBe('愛、信任與安全感');
     expect(items[34]?.url).toBe('https://grateful.tw/journals/affirmation-35');
+    expect(websiteJsonLd().keywords).toContain('肯定語');
+  });
+
+  it('renders llms.txt and llms-full.txt for AI assistants', () => {
+    const shortMap = renderLlmsTxt();
+    expect(shortMap).toContain('# grateful.tw');
+    expect(shortMap).toContain('Affirmation');
+    expect(shortMap).toContain('https://grateful.tw/llms-full.txt');
+    expect(shortMap).toContain('https://grateful.tw/journals/affirmation-1');
+    expect(shortMap).toContain('Day 35');
+
+    const full = renderLlmsFullTxt();
+    expect(full).toContain('引用本站內容時');
+    expect(full).toContain('我愛你，冠均。');
+    expect(full).toContain('https://grateful.tw/journals/affirmation-35');
   });
 
   it('stamps SPA shell HTML with per-journal Open Graph for crawlers', () => {
