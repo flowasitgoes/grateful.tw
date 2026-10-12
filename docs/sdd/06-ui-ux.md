@@ -4,10 +4,18 @@
 
 ## 共用頂欄
 
-- 左側：主界面顯示「grateful.tw」；閱讀頁顯示返回箭頭圖示，`aria-label`「返回」
-- 右側：漢堡圖示按鈕，`aria-label`「選單」；開啟後圖示改為關閉，`aria-label`「關閉」
+- 左側：主界面顯示「grateful.tw」；閱讀頁顯示返回箭頭圖示，`aria-label` 繁中「返回」／英文「Back」
+- 正中：語言 toggle 一顆按鈕顯示「中文／EN」（目前語言粗體）；點一下在 `zh`／`en` 之間切換（手機好點）
+- 右側：漢堡圖示按鈕，`aria-label`「選單／Menu」；開啟後改為「關閉／Close」
 - 點漢堡：從右側滑出較窄的全高選單；左邊內容保持清晰、不模糊。點遮罩或關閉可關
 - 選單第一列：IG 圖示＋「riddles.tw」，開 `https://www.instagram.com/riddles.tw`（新分頁、`rel="noopener noreferrer"`）
+- 語言：預設繁中；切換後存 `localStorage` `grateful.locale`（`zh`｜`en`）
+
+## 語言
+
+- 繁中／英文覆蓋：頂欄、選單、列表副標、閱讀頁篇名與全文、上一篇／下一篇
+- `document.documentElement.lang`：`zh-Hant` 或 `en`
+- 靜態 OG／llms／sitemap 仍以繁中為權威預設（外國人進站後用切換看英文）
 
 ## 路由
 

@@ -1,3 +1,5 @@
+import { DEFAULT_LOCALE, type Locale } from './locale';
+
 export interface Journal {
   id: string;
   title: string;
@@ -5,6 +7,7 @@ export interface Journal {
 }
 
 export const JOURNAL_TITLE = '感恩日記';
+export const JOURNAL_TITLE_EN = 'Gratitude Journal';
 
 export const JOURNAL_COUNT = 35;
 
@@ -44,6 +47,44 @@ export const JOURNAL_HEADINGS: Readonly<Record<string, string>> = {
   'affirmation-33': '我選擇用有意識的愛與誠懇對待世界',
   'affirmation-34': '我值得擁有讓自己安心、被尊重的關係',
   'affirmation-35': '我感謝健康的身體，讓我體驗生命的豐盛',
+};
+
+export const JOURNAL_HEADINGS_EN: Readonly<Record<string, string>> = {
+  'affirmation-1': 'Love, Trust, and Safety',
+  'affirmation-2': 'Self-Love and Self-Acceptance',
+  'affirmation-3': 'Inner Child and Healing',
+  'affirmation-4': 'Love and Intimate Relationships',
+  'affirmation-5': 'Confidence, Ability, and Strength',
+  'affirmation-6': 'Focus, Calm, and Life Rhythm',
+  'affirmation-7': 'Creativity, Work, and Aspiration',
+  'affirmation-8': 'Money, Abundance, and Receiving',
+  'affirmation-9': 'Gratitude and Receiving',
+  'affirmation-10': 'Blessings for Partners and Others',
+  'affirmation-11': 'Blessings for the Children',
+  'affirmation-12': 'Daily Short Version',
+  'affirmation-13': 'Structured Affirmation Practice',
+  'affirmation-14': 'I Am Willing to Understand and Accept You',
+  'affirmation-15': 'Safety in Love',
+  'affirmation-16': 'Confidence and Self-Worth',
+  'affirmation-17': 'My Worth Does Not Need Comparison',
+  'affirmation-18': 'I Am Safe in Intimate Relationships',
+  'affirmation-19': 'I Choose to Live Lightly and Freely',
+  'affirmation-20': 'I Deserve to Be Loved, Cared For, and Valued',
+  'affirmation-21': 'It Is Safe to Express My True Self',
+  'affirmation-22': 'Disagreement Does Not Mean the Relationship Ends',
+  'affirmation-23': 'I Can Relax and Be Myself',
+  'affirmation-24': 'I Matter to the People I Love',
+  'affirmation-25': 'I Deserve Intimate Connection and Allow Myself to Be Loved',
+  'affirmation-26': 'I Deserve to Be Treated with Generosity and Care',
+  'affirmation-27': 'My Feelings, Wishes, and Choices Deserve Respect',
+  'affirmation-28': 'I Deserve to Be Appreciated and Liked',
+  'affirmation-29': 'I Deserve Warm Closeness and Gentle Love',
+  'affirmation-30': 'Love and Relationships Nourish My Creativity',
+  'affirmation-31': 'I Deserve Support; My Creativity Deserves to Be Seen',
+  'affirmation-32': 'I Deserve to Create a Beautiful Life with Someone I Love',
+  'affirmation-33': 'I Choose Conscious Love and Sincerity Toward the World',
+  'affirmation-34': 'I Deserve Relationships Where I Feel Safe and Respected',
+  'affirmation-35': 'I Thank My Healthy Body for Letting Me Experience Life’s Abundance',
 };
 
 function journalCreatedAt(n: number): string {
@@ -157,7 +198,14 @@ export function journalDayLabel(id: string): string {
   return `Day ${id.replace(/^affirmation-/, '')}`;
 }
 
-export function journalSubtitle(id: string): string {
+export function journalListTitle(locale: Locale = DEFAULT_LOCALE): string {
+  return locale === 'en' ? JOURNAL_TITLE_EN : JOURNAL_TITLE;
+}
+
+export function journalSubtitle(id: string, locale: Locale = DEFAULT_LOCALE): string {
+  if (locale === 'en') {
+    return JOURNAL_HEADINGS_EN[id] ?? JOURNAL_HEADINGS[id] ?? '';
+  }
   return JOURNAL_HEADINGS[id] ?? '';
 }
 

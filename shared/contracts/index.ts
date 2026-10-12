@@ -9,15 +9,25 @@ export {
 } from './entry';
 export type { EntrySectionKey, EntrySections } from './entry';
 export {
+  DEFAULT_LOCALE,
+  LOCALE_STORAGE_KEY,
+  htmlLang,
+  isLocale,
+} from './locale';
+export type { Locale } from './locale';
+export {
   JOURNAL_COUNT,
   JOURNAL_HEADINGS,
+  JOURNAL_HEADINGS_EN,
   JOURNAL_TITLE,
+  JOURNAL_TITLE_EN,
   JOURNALS,
   findJournal,
   formatJournalDateTime,
   journalAdjacent,
   journalDayLabel,
   journalDayNumber,
+  journalListTitle,
   journalSubtitle,
   journalsNewestFirst,
 } from './journal';
@@ -25,9 +35,12 @@ export type { Journal } from './journal';
 export {
   CORE_SEARCH_KEYWORDS,
   JOURNAL_DESCRIPTIONS,
+  JOURNAL_DESCRIPTIONS_EN,
   JOURNAL_KEYWORDS,
+  JOURNAL_KEYWORDS_EN,
   SITE_AUTHOR,
   SITE_DESCRIPTION,
+  SITE_DESCRIPTION_EN,
   SITE_GOOGLE_VERIFICATION,
   SITE_NAME,
   SITE_OG_IMAGE_HEIGHT,

@@ -1,6 +1,9 @@
 <article class="journal">
   <h1>{{ heading() }}</h1>
 
+  @if (locale() === 'en') {
+    <div class="journal-body" [innerHTML]="enBody()"></div>
+  } @else {
   @switch (journalId()) {
     @case ('affirmation-1') {
       <section>
@@ -494,12 +497,13 @@
       </section>
     }
   }
+  }
 
   @if (prevLink() || nextLink()) {
-    <nav class="journal-pager" aria-label="相鄰短箋">
+    <nav class="journal-pager" [attr.aria-label]="copy().pagerNav">
       @if (prevLink(); as prev) {
         <a class="journal-pager-link" [routerLink]="prev.path">
-          <span class="journal-pager-label">上一篇</span>
+          <span class="journal-pager-label">{{ copy().prev }}</span>
           <span class="journal-pager-meta">{{ prev.day }} · {{ prev.heading }}</span>
         </a>
       } @else {
@@ -507,7 +511,7 @@
       }
       @if (nextLink(); as next) {
         <a class="journal-pager-link journal-pager-link--next" [routerLink]="next.path">
-          <span class="journal-pager-label">下一篇</span>
+          <span class="journal-pager-label">{{ copy().next }}</span>
           <span class="journal-pager-meta">{{ next.day }} · {{ next.heading }}</span>
         </a>
       }

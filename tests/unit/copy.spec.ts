@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { COPY, INSTAGRAM_HREF } from '../../shared/frontend/ui/copy';
+import { COPY, INSTAGRAM_HREF, uiCopy } from '../../shared/frontend/ui/copy';
 
 describe('COPY', () => {
   it('matches 06-ui-ux Instagram link', () => {
@@ -26,5 +26,16 @@ describe('COPY', () => {
     expect(COPY.reading).not.toBe(COPY.readFailed);
     expect(COPY.saving).not.toBe(COPY.saveFailed);
     expect(COPY.saving).not.toBe(COPY.saved);
+  });
+
+  it('provides English UI strings', () => {
+    const en = uiCopy('en');
+    expect(en.menu).toBe('Menu');
+    expect(en.menuClose).toBe('Close');
+    expect(en.back).toBe('Back');
+    expect(en.prev).toBe('Previous');
+    expect(en.next).toBe('Next');
+    expect(en.langZh).toBe('中文');
+    expect(en.langEn).toBe('EN');
   });
 });

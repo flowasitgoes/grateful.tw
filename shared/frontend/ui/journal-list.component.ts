@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   formatJournalDateTime,
   journalDayLabel,
+  journalListTitle,
   journalSubtitle,
   journalsNewestFirst,
 } from '@app/contracts';
+import { LocaleService } from '@app/frontend/data-access';
 
 @Component({
   selector: 'grateful-journal-list',
@@ -19,7 +21,7 @@ import {
               <span class="journal-grid-day">{{ dayLabel(journal.id) }}</span>
               <span class="journal-grid-sub">{{ subtitle(journal.id) }}</span>
             </span>
-            <span class="journal-grid-title">{{ journal.title }}</span>
+            <span class="journal-grid-title">{{ listTitle() }}</span>
             <!-- 暫隱藏時間
             <time class="journal-grid-time" [attr.datetime]="journal.createdAt">{{
               format(journal.createdAt)
@@ -32,8 +34,10 @@ import {
   `,
 })
 export class JournalListComponent {
+  private readonly localeService = inject(LocaleService);
   readonly journals = journalsNewestFirst();
   readonly format = formatJournalDateTime;
   readonly dayLabel = journalDayLabel;
-  readonly subtitle = journalSubtitle;
+  readonly listTitle = () => journalListTitle(this.localeService.locale());
+  readonly subtitle = (id: string) => journalSubtitle(id, this.localeService.locale());
 }

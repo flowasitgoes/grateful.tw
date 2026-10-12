@@ -21,5 +21,8 @@
 | SEO-04 | `build:web` 為每篇產出 1200×630 字卡 JPEG（篇名＋「感恩日記」＋ Day），路徑 `/og/:id.jpg`。全站仍保留 `/og-image.png` 作首頁預設。 | Web |
 | SEO-05 | Search Console：提交 `sitemap.xml`；追蹤核心詞「感恩日記、每日感恩、肯定語、Affirmation、自愛、安全感、親密關係、創造力」。可選填 `SITE_GOOGLE_VERIFICATION` 輸出驗證 meta。 | Web |
 | SEO-06 | AI 搜尋／引用：`robots.txt` 明確允許 GPTBot、ClaudeBot、PerplexityBot 等；建置產出 `/llms.txt` 與 `/llms-full.txt`（站點說明、核心主題、全部短箋連結與摘要）；首頁 description 清楚陳述「誰／做什麼／主題」；JSON-LD 含 alternateName、sameAs、isAccessibleForFree。 | Web |
+| I18N-01 | 預設語言為繁體中文（`zh`）。頂欄正中一顆「中文／EN」toggle；點一下切換；目前語言可辨識。 | 兩端 |
+| I18N-02 | 語言偏好寫入 `localStorage`（`grateful.locale`），重新開啟仍記得；切換後 UI 文案、列表副標、閱讀頁篇名與全文、上一篇／下一篇、文件 title／description 一併切換。 | 兩端 |
+| I18N-03 | 三十五篇皆有英文正文與英文篇名；`html[lang]` 隨語言為 `zh-Hant` 或 `en`。靜態分享 OG／llms 仍以繁中為主（預設語言）。 | 兩端 |
 | DEPLOY-01 | 根目錄設定讓 Vercel 執行 `npm run build:web`（不可只跑 `ng build`），產出 `dist/apps/web/browser`；建置後產每篇 og JPEG、`llms.txt`／`llms-full.txt`，並寫入 `journals/:id/index.html`（SPA shell＋該篇 meta）。 | Web |
 | DEPLOY-02 | Vercel 上已存在的 `journals/:id/index.html`、`/og/:id.jpg`、`llms.txt`、`llms-full.txt` 直接提供；其餘前端路由落到 SPA；`robots.txt`、`sitemap.xml`、圖示與預設 `og-image` 以靜態檔提供。 | Web |

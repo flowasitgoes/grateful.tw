@@ -10,6 +10,7 @@
 | `build:web` 產出每篇 `/og/:id.jpg` | `npm run build:web` |
 | `llms.txt`／`llms-full.txt` 內容與 AI robots 允許 | `tests/unit`、`npm run build:web` |
 | Instagram 外連文案與網址 | `tests/unit` |
+| 雙語：預設 zh、英文篇名／正文／UI 文案 | `tests/unit` |
 | Web 生產建置（Vercel 同指令） | `npm run build:web` |
 
 ```bash

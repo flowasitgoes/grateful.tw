@@ -5,12 +5,15 @@ import {
   journalSubtitle,
   type Journal,
 } from './journal';
+import { DEFAULT_LOCALE, type Locale } from './locale';
 
 export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_AUTHOR = '冠均';
 export const SITE_DESCRIPTION =
   'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄三十五篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
+export const SITE_DESCRIPTION_EN =
+  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with thirty-five read-only notes on self-love, safety, intimacy, and creativity.';
 export const SITE_SAME_AS = ['https://www.instagram.com/riddles.tw'] as const;
 /** 填入 Google Search Console 驗證碼後會輸出 meta；空白則不輸出。 */
 export const SITE_GOOGLE_VERIFICATION = '';
@@ -69,6 +72,44 @@ export const JOURNAL_KEYWORDS: Readonly<Record<string, readonly string[]>> = {
   'affirmation-33': ['有意識的愛', '善意'],
   'affirmation-34': ['安全感', '被尊重'],
   'affirmation-35': ['健康', '感恩'],
+};
+
+export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = {
+  'affirmation-1': ['safety', 'affirmation'],
+  'affirmation-2': ['self-love', 'self-acceptance'],
+  'affirmation-3': ['inner child', 'healing'],
+  'affirmation-4': ['intimacy', 'affirmation'],
+  'affirmation-5': ['confidence', 'affirmation'],
+  'affirmation-6': ['calm', 'focus'],
+  'affirmation-7': ['creativity', 'aspiration'],
+  'affirmation-8': ['abundance', 'money'],
+  'affirmation-9': ['gratitude', 'receiving'],
+  'affirmation-10': ['blessing', 'partners'],
+  'affirmation-11': ['blessing', 'children'],
+  'affirmation-12': ['daily gratitude', 'affirmation'],
+  'affirmation-13': ['Affirmation', 'practice'],
+  'affirmation-14': ['understanding', 'acceptance'],
+  'affirmation-15': ['safety', 'intimacy'],
+  'affirmation-16': ['confidence', 'self-worth'],
+  'affirmation-17': ['self-worth', 'love'],
+  'affirmation-18': ['safety', 'intimacy'],
+  'affirmation-19': ['ease', 'affirmation'],
+  'affirmation-20': ['love', 'care'],
+  'affirmation-21': ['expression', 'safety'],
+  'affirmation-22': ['communication', 'intimacy'],
+  'affirmation-23': ['being myself', 'ease'],
+  'affirmation-24': ['being valued', 'intimacy'],
+  'affirmation-25': ['connection', 'love'],
+  'affirmation-26': ['care', 'generosity'],
+  'affirmation-27': ['respect', 'feelings'],
+  'affirmation-28': ['appreciation', 'being liked'],
+  'affirmation-29': ['love', 'closeness'],
+  'affirmation-30': ['creativity', 'relationships'],
+  'affirmation-31': ['creativity', 'being seen'],
+  'affirmation-32': ['shared life', 'intimacy'],
+  'affirmation-33': ['conscious love', 'kindness'],
+  'affirmation-34': ['safety', 'respect'],
+  'affirmation-35': ['health', 'gratitude'],
 };
 
 export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
@@ -132,6 +173,67 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
     '我愛我的身體。我感謝自己的身體，讓我能夠行走、擁抱、親密、玩樂、探索與創造。',
 };
 
+export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
+  'affirmation-1': 'I love you, Guanjun. I truly love you. I trust you. Life provides everything I need.',
+  'affirmation-2': 'Guanjun, I love you. I approve of you. I accept you as you are. I choose to love myself unconditionally.',
+  'affirmation-3': 'I love my inner child. I am willing to love, understand, and accept all of my inner children.',
+  'affirmation-4': 'I deserve love, intimacy, joy, and all the good things life has for me.',
+  'affirmation-5': 'I grow more confident every day. I believe in myself. I am capable.',
+  'affirmation-6': 'I return to my center. I am focused. I can stay calm in any situation.',
+  'affirmation-7': 'My thoughts are creative. My thoughts and words are shaping my life.',
+  'affirmation-8': 'My income keeps growing. I open myself to receive all good things.',
+  'affirmation-9': 'Today is a gift from life. This is a blessed day.',
+  'affirmation-10': 'I look at my partners with love. I affirm my partners.',
+  'affirmation-11': 'Dear child, we are so glad you came into this world. We love you.',
+  'affirmation-12': 'I love you, Guanjun. I am safe and all is well. Today is a blessed day.',
+  'affirmation-13':
+    'Nine-part affirmation practice: connect, safety, acceptance, ability, relationships, creation, money, gratitude, today’s intention.',
+  'affirmation-14':
+    'Thank you for coming to me and sharing your thoughts and feelings. I want to create more warm moments with you.',
+  'affirmation-15':
+    'I can safely express my emotions, thoughts, and needs. Even with different opinions, we can keep communicating and repairing.',
+  'affirmation-16':
+    'I believe in myself. My feelings matter. My preferences, thoughts, and choices deserve respect.',
+  'affirmation-17':
+    'I already deserve love, respect, and kindness. Income and material conditions do not define my whole worth.',
+  'affirmation-18':
+    'I deserve gentle, sincere, mutually understanding relationships. I can safely express vulnerability and disagreement.',
+  'affirmation-19':
+    'I allow things to be simpler than I imagined. I can put down unnecessary comparison and worry. I stand on my own side.',
+  'affirmation-20':
+    'I deserve to be loved, cared for, and held in someone’s heart. I do not need to prove my worth to receive love.',
+  'affirmation-21':
+    'My feelings matter. My thoughts, emotions, needs, and opinions deserve to be heard. It is safe to be real.',
+  'affirmation-22':
+    'I allow myself to disagree. One misunderstanding does not mean I will be abandoned. Healthy relationships can repair.',
+  'affirmation-23':
+    'I allow myself to relax. I can speak, joke, and disagree naturally. I allow love to be light, free, and gentle.',
+  'affirmation-24':
+    'I deserve to be loved and valued. My presence matters to those I love. I deserve open, trusting relationships.',
+  'affirmation-25':
+    'I can ask questions with curiosity and trust. I allow myself to receive love that already exists. I deserve easy intimacy.',
+  'affirmation-26':
+    'I deserve to be loved, cared for, and looked after. I deserve people who willingly give time, care, and resources.',
+  'affirmation-27':
+    'My thoughts and feelings matter. I deserve to be respected and considered in the details of life.',
+  'affirmation-28':
+    'I deserve to be appreciated. My appearance, presence, taste, and uniqueness deserve to be seen and liked.',
+  'affirmation-29':
+    'I deserve love, hugs, holding hands, and closeness. I deserve someone who moves toward me with natural affection.',
+  'affirmation-30':
+    'I deserve relationships that inspire, appreciate, and support me. I allow myself to grow in love and create with joy.',
+  'affirmation-31':
+    'I deserve people who care about my dreams, craft, and performance. My creativity deserves to be seen.',
+  'affirmation-32':
+    'I deserve a comfortable, healthy, warm life of quality. I deserve a relationship that solves problems and builds a future together.',
+  'affirmation-33':
+    'I believe every life deserves respect and kindness. I willingly bring love into every encounter.',
+  'affirmation-34':
+    'I deserve to be cared for, valued, and respected. I can feel safe, relaxed, and loved while trusting and communicating.',
+  'affirmation-35':
+    'I love my body. I thank my body for letting me walk, hug, play, explore, and create.',
+};
+
 export function siteUrl(path: string = '/'): string {
   if (path === '/' || path === '') {
     return `${SITE_ORIGIN}/`;
@@ -139,12 +241,12 @@ export function siteUrl(path: string = '/'): string {
   return `${SITE_ORIGIN}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
-export function homeSeoTitle(): string {
-  return `感恩日記｜${SITE_NAME}`;
+export function homeSeoTitle(locale: Locale = DEFAULT_LOCALE): string {
+  return locale === 'en' ? `Gratitude Journal｜${SITE_NAME}` : `感恩日記｜${SITE_NAME}`;
 }
 
-export function homeSeoDescription(): string {
-  return SITE_DESCRIPTION;
+export function homeSeoDescription(locale: Locale = DEFAULT_LOCALE): string {
+  return locale === 'en' ? SITE_DESCRIPTION_EN : SITE_DESCRIPTION;
 }
 
 export function journalCanonicalPath(id: string): string {
@@ -155,25 +257,40 @@ export function journalOgImagePath(id: string): string {
   return `/og/${id}.jpg`;
 }
 
-export function journalKeywords(id: string): readonly string[] {
+export function journalKeywords(
+  id: string,
+  locale: Locale = DEFAULT_LOCALE,
+): readonly string[] {
+  if (locale === 'en') {
+    return JOURNAL_KEYWORDS_EN[id] ?? ['gratitude journal', 'affirmation'];
+  }
   return JOURNAL_KEYWORDS[id] ?? ['感恩日記', '肯定語'];
 }
 
-export function journalSeoTitle(id: string): string {
-  const heading = journalSubtitle(id);
+export function journalSeoTitle(id: string, locale: Locale = DEFAULT_LOCALE): string {
+  const heading = journalSubtitle(id, locale);
   const day = journalDayLabel(id);
+  if (locale === 'en') {
+    return `${heading}｜Gratitude Journal ${day}｜${SITE_NAME}`;
+  }
   return `${heading}｜感恩日記 ${day}｜${SITE_NAME}`;
 }
 
-export function journalSeoDescription(id: string): string {
-  const heading = journalSubtitle(id);
+export function journalSeoDescription(id: string, locale: Locale = DEFAULT_LOCALE): string {
+  const heading = journalSubtitle(id, locale);
+  if (locale === 'en') {
+    const opening = JOURNAL_DESCRIPTIONS_EN[id] ?? SITE_DESCRIPTION_EN;
+    const topics = journalKeywords(id, locale).join(', ');
+    return `Gratitude Journal｜${heading}. ${opening} For daily gratitude and affirmation practice. Themes: ${topics}.`;
+  }
   const opening = JOURNAL_DESCRIPTIONS[id] ?? SITE_DESCRIPTION;
-  const topics = journalKeywords(id).join('、');
+  const topics = journalKeywords(id, locale).join('、');
   return `感恩日記｜${heading}。${opening} 適合每日感恩日記與肯定語練習，主題：${topics}。`;
 }
 
-export function journalOgImageAlt(id: string): string {
-  return `${journalSubtitle(id)}｜感恩日記`;
+export function journalOgImageAlt(id: string, locale: Locale = DEFAULT_LOCALE): string {
+  const heading = journalSubtitle(id, locale);
+  return locale === 'en' ? `${heading}｜Gratitude Journal` : `${heading}｜感恩日記`;
 }
 
 function escapeHtml(value: string): string {
@@ -299,15 +416,18 @@ export function homeJsonLd(): JsonLd {
   };
 }
 
-export function articleJsonLd(journal: Journal): JsonLd {
-  const keywords = journalKeywords(journal.id);
+export function articleJsonLd(
+  journal: Journal,
+  locale: Locale = DEFAULT_LOCALE,
+): JsonLd {
+  const keywords = journalKeywords(journal.id, locale);
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: journalSubtitle(journal.id),
-    description: journalSeoDescription(journal.id),
+    headline: journalSubtitle(journal.id, locale),
+    description: journalSeoDescription(journal.id, locale),
     datePublished: journal.createdAt,
-    inLanguage: 'zh-Hant',
+    inLanguage: locale === 'en' ? 'en' : 'zh-Hant',
     url: siteUrl(journalCanonicalPath(journal.id)),
     image: siteUrl(journalOgImagePath(journal.id)),
     author: {
@@ -322,7 +442,7 @@ export function articleJsonLd(journal: Journal): JsonLd {
     isPartOf: {
       '@type': 'WebSite',
       name: SITE_NAME,
-      alternateName: '感恩日記',
+      alternateName: locale === 'en' ? 'Gratitude Journal' : '感恩日記',
       url: siteUrl('/'),
     },
     isAccessibleForFree: true,

@@ -27,6 +27,7 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | P0 | 閱讀頁有上一篇／下一篇；Article／首頁 ItemList JSON-LD；Search Console 追蹤核心詞並可提交 sitemap。 | SEO |
 | P0 | AI 搜尋友善：llms.txt、允許 AI 爬蟲、清楚的站點／篇目機器可讀摘要，利於 ChatGPT／Claude 等引用。 | SEO |
 | P0 | 靜態 Web 能從 GitHub 部署到 Vercel（grateful.tw）。 | 部署 |
+| P0 | 全站雙語（繁中／英文）：預設繁中；頂欄可切「中文／EN」；偏好存本機；UI 與 35 篇正文皆可切換。 | i18n |
 | P1 | 漢堡選單其他項目 | 不做 |
 | P1 | 新增／編輯日記 | 不做 |
 | P1 | Firebase、登入 | 不做 |
@@ -77,3 +78,4 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | 2026-10-12 | 冠均 | 建置產出每篇靜態 HTML，供 Facebook 等爬蟲讀取個別 OG／meta |
 | 2026-10-12 | 冠均 | SEO：主題詞、獨立 og 字卡、JSON-LD、上下篇、Search Console 核心詞 |
 | 2026-10-12 | 冠均 | AI 搜尋：llms.txt、robots 允許 AI 爬蟲、站點描述與 JSON-LD 加厚 |
+| 2026-10-12 | 冠均 | 全站雙語：預設繁中，可切換 EN |

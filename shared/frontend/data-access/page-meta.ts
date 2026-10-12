@@ -19,7 +19,9 @@ import {
   siteUrl,
   type Journal,
   type JsonLd,
+  type Locale,
 } from '@app/contracts';
+import { LocaleService } from './locale.service';
 
 const JSON_LD_ID = 'grateful-jsonld';
 
@@ -28,11 +30,13 @@ export class PageMeta {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly document = inject(DOCUMENT);
+  private readonly localeService = inject(LocaleService);
 
   setHome(): void {
+    const locale = this.localeService.locale();
     this.apply({
-      title: homeSeoTitle(),
-      description: homeSeoDescription(),
+      title: homeSeoTitle(locale),
+      description: homeSeoDescription(locale),
       url: siteUrl('/'),
       type: 'website',
       image: siteUrl(SITE_OG_IMAGE_PATH),
@@ -43,14 +47,15 @@ export class PageMeta {
   }
 
   setJournal(journal: Journal): void {
+    const locale = this.localeService.locale();
     this.apply({
-      title: journalSeoTitle(journal.id),
-      description: journalSeoDescription(journal.id),
+      title: journalSeoTitle(journal.id, locale),
+      description: journalSeoDescription(journal.id, locale),
       url: siteUrl(journalCanonicalPath(journal.id)),
       type: 'article',
       image: siteUrl(journalOgImagePath(journal.id)),
-      imageAlt: journalOgImageAlt(journal.id),
-      jsonLd: articleJsonLd(journal),
+      imageAlt: journalOgImageAlt(journal.id, locale),
+      jsonLd: articleJsonLd(journal, locale),
     });
   }
 
@@ -76,7 +81,10 @@ export class PageMeta {
     this.meta.updateTag({ property: 'og:description', content: input.description });
     this.meta.updateTag({ property: 'og:url', content: input.url });
     this.meta.updateTag({ property: 'og:type', content: input.type });
-    this.meta.updateTag({ property: 'og:locale', content: 'zh_TW' });
+    this.meta.updateTag({
+      property: 'og:locale',
+      content: this.localeService.locale() === 'en' ? 'en_US' : 'zh_TW',
+    });
     this.meta.updateTag({ property: 'og:site_name', content: SITE_NAME });
     this.meta.updateTag({ property: 'og:image', content: input.image });
     this.meta.updateTag({ property: 'og:image:width', content: SITE_OG_IMAGE_WIDTH });
@@ -125,3 +133,5 @@ export class PageMeta {
     script.textContent = JSON.stringify(data);
   }
 }
+
+export type { Locale };

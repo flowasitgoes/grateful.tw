@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { IonContent } from '@ionic/angular/standalone';
-import { PageMeta } from '@app/frontend/data-access';
+import { LocaleService, PageMeta } from '@app/frontend/data-access';
 import { JournalListComponent, ShellComponent } from '@app/frontend/ui';
 
 @Component({
@@ -15,7 +15,13 @@ import { JournalListComponent, ShellComponent } from '@app/frontend/ui';
   `,
 })
 export class HomePage {
+  private readonly pageMeta = inject(PageMeta);
+  private readonly localeService = inject(LocaleService);
+
   constructor() {
-    inject(PageMeta).setHome();
+    effect(() => {
+      this.localeService.locale();
+      this.pageMeta.setHome();
+    });
   }
 }
