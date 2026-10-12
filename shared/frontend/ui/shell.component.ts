@@ -1,6 +1,5 @@
 import { Component, input, OnDestroy, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { type Locale } from '@app/contracts';
 import { LocaleService } from '@app/frontend/data-access';
 import { INSTAGRAM_HREF, uiCopy } from './copy';
 
