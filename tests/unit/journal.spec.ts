@@ -26,7 +26,7 @@ describe('formatJournalDateTime', () => {
 });
 
 describe('JOURNALS', () => {
-  it('has thirty-five entries, newest first is Day 35 / affirmation-35', () => {
+  it('has fifty entries, newest first is Day 50 / affirmation-50', () => {
     expect(JOURNALS).toHaveLength(JOURNAL_COUNT);
     expect(JOURNALS[0]?.id).toBe('affirmation-1');
     expect(JOURNALS[0]?.createdAt).toBe('2026-09-01T17:08:00+08:00');
@@ -34,11 +34,11 @@ describe('JOURNALS', () => {
     expect(JOURNALS[12]?.createdAt).toBe('2026-09-13T17:08:00+08:00');
     expect(JOURNALS[13]?.id).toBe('affirmation-14');
     expect(JOURNALS[13]?.createdAt).toBe('2026-10-10T22:18:00+08:00');
-    expect(JOURNALS[33]?.id).toBe('affirmation-34');
-    expect(JOURNALS[33]?.createdAt).toBe('2026-10-12T01:00:00+08:00');
-    expect(JOURNALS[34]?.id).toBe('affirmation-35');
-    expect(JOURNALS[34]?.createdAt).toBe('2026-10-12T01:01:00+08:00');
-    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-35');
+    expect(JOURNALS[48]?.id).toBe('affirmation-49');
+    expect(JOURNALS[48]?.createdAt).toBe('2026-10-13T10:30:00+08:00');
+    expect(JOURNALS[49]?.id).toBe('affirmation-50');
+    expect(JOURNALS[49]?.createdAt).toBe('2026-10-13T10:32:00+08:00');
+    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-50');
   });
 });
 
@@ -69,6 +69,21 @@ describe('journalDayLabel', () => {
     expect(journalDayLabel('affirmation-33')).toBe('Day 33');
     expect(journalDayLabel('affirmation-34')).toBe('Day 34');
     expect(journalDayLabel('affirmation-35')).toBe('Day 35');
+    expect(journalDayLabel('affirmation-36')).toBe('Day 36');
+    expect(journalDayLabel('affirmation-37')).toBe('Day 37');
+    expect(journalDayLabel('affirmation-38')).toBe('Day 38');
+    expect(journalDayLabel('affirmation-39')).toBe('Day 39');
+    expect(journalDayLabel('affirmation-40')).toBe('Day 40');
+    expect(journalDayLabel('affirmation-41')).toBe('Day 41');
+    expect(journalDayLabel('affirmation-42')).toBe('Day 42');
+    expect(journalDayLabel('affirmation-43')).toBe('Day 43');
+    expect(journalDayLabel('affirmation-44')).toBe('Day 44');
+    expect(journalDayLabel('affirmation-45')).toBe('Day 45');
+    expect(journalDayLabel('affirmation-46')).toBe('Day 46');
+    expect(journalDayLabel('affirmation-47')).toBe('Day 47');
+    expect(journalDayLabel('affirmation-48')).toBe('Day 48');
+    expect(journalDayLabel('affirmation-49')).toBe('Day 49');
+    expect(journalDayLabel('affirmation-50')).toBe('Day 50');
   });
 });
 
@@ -100,6 +115,21 @@ describe('journalSubtitle', () => {
     expect(journalSubtitle('affirmation-33')).toBe('我選擇用有意識的愛與誠懇對待世界');
     expect(journalSubtitle('affirmation-34')).toBe('我值得擁有讓自己安心、被尊重的關係');
     expect(journalSubtitle('affirmation-35')).toBe('我感謝健康的身體，讓我體驗生命的豐盛');
+    expect(journalSubtitle('affirmation-36')).toBe('世界豐富得展開，我正處於一個新的階段');
+    expect(journalSubtitle('affirmation-37')).toBe('我選擇相信，我的身體是有力量的');
+    expect(journalSubtitle('affirmation-38')).toBe('我感謝眼前這份美好');
+    expect(journalSubtitle('affirmation-39')).toBe('給自己的慈愛：願我平安、健康、幸福');
+    expect(journalSubtitle('affirmation-40')).toBe('給她人與所愛的人：願你幸福，願你自由');
+    expect(journalSubtitle('affirmation-41')).toBe('給身邊的人：願每個人都被善待');
+    expect(journalSubtitle('affirmation-42')).toBe('給陌生人與所有生命：願一切眾生安樂');
+    expect(journalSubtitle('affirmation-43')).toBe('慈愛與界線：願我在關係中保持溫柔與智慧');
+    expect(journalSubtitle('affirmation-44')).toBe('慈愛的生活：願我的存在為世界帶來美好');
+    expect(journalSubtitle('affirmation-45')).toBe('每日慈心給予自己');
+    expect(journalSubtitle('affirmation-46')).toBe('感謝大地，提供製作床墊的材料');
+    expect(journalSubtitle('affirmation-47')).toBe('感謝原料生產者，將自然資源帶進人類生活');
+    expect(journalSubtitle('affirmation-48')).toBe('感謝工程師、工廠與所有製造床墊的人');
+    expect(journalSubtitle('affirmation-49')).toBe('感謝物流、門市與所有讓床墊來到我面前的人');
+    expect(journalSubtitle('affirmation-50')).toBe('「山式」Mountain Pose');
   });
 });
 
@@ -108,7 +138,10 @@ describe('journalAdjacent', () => {
     expect(journalAdjacent('affirmation-1').prev).toBeUndefined();
     expect(journalAdjacent('affirmation-1').next?.id).toBe('affirmation-2');
     expect(journalAdjacent('affirmation-35').prev?.id).toBe('affirmation-34');
-    expect(journalAdjacent('affirmation-35').next).toBeUndefined();
+    expect(journalAdjacent('affirmation-49').prev?.id).toBe('affirmation-48');
+    expect(journalAdjacent('affirmation-49').next?.id).toBe('affirmation-50');
+    expect(journalAdjacent('affirmation-50').prev?.id).toBe('affirmation-49');
+    expect(journalAdjacent('affirmation-50').next).toBeUndefined();
     expect(journalAdjacent('affirmation-20').prev?.id).toBe('affirmation-19');
     expect(journalAdjacent('affirmation-20').next?.id).toBe('affirmation-21');
   });

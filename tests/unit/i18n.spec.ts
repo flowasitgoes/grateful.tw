@@ -28,7 +28,8 @@ describe('i18n', () => {
     expect(JOURNAL_BODIES_EN['affirmation-1']).toContain('<section>');
     expect(JOURNAL_BODIES_EN['affirmation-1']).toContain('I love you, Guanjun.');
     expect(JOURNAL_BODIES_EN['affirmation-13']).toContain('Connect with yourself');
-    expect(JOURNAL_BODIES_EN['affirmation-35']).toContain('</section>');
+    expect(JOURNAL_BODIES_EN['affirmation-50']).toContain('</section>');
+    expect(JOURNAL_BODIES_EN['affirmation-50']).toContain('I am grateful that I can stretch my neck and shoulders');
   });
 
   it('builds English SEO title and description', () => {

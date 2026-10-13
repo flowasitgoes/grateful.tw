@@ -1,4 +1,4 @@
-/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-35`. */
+/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-50`. */
 export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
   'affirmation-1': `<section>
   <p>I love you, Guanjun.<br />I truly love you.<br />I trust you.</p>
@@ -454,5 +454,271 @@ export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
   <p>I allow myself to enjoy the vitality, comfort, and joy my body brings.</p>
   <p>I am grateful for the good that already exists in my life.</p>
   <p>My body is an important gift through which I experience love, freedom, creativity, and the abundance of life.</p>
+</section>`,
+
+  'affirmation-36': `<section>
+  <p>I am grateful to be in a new stage.</p>
+  <p>
+    I am grateful that I am transforming, releasing an old identity,<br />and learning new abilities,<br />preparing a foundation for my craft and direction, and building quality.
+  </p>
+  <p>
+    Even if the results are not fully formed yet,<br />I know I am moving forward steadily, and things will get better.
+  </p>
+</section>`,
+
+  'affirmation-37': `<section>
+  <p>I choose to trust that my body has strength,</p>
+  <p>
+    I choose to trust<br />that you are clarifying my direction,<br />and preparing my future.
+  </p>
+  <p>
+    I entrust this day to you.<br />Let my heart grow quiet,<br />and let my body soften into rest.
+  </p>
+  <p>
+    May I be restored in rest,<br />and sorted through in sleep.
+  </p>
+  <p>
+    When I wake tomorrow,<br />may my heart be clear,<br />my body strong,<br />and my aim gentle yet sure.
+  </p>
+</section>`,
+
+  'affirmation-38': `<section>
+  <p>I am grateful for this beauty before me.</p>
+  <p>
+    I see the knowledge, time, labor, and care of countless people behind it.<br />I thank the earth for its resources, and every life that plays a part.<br />Even if I do not know their names, I still want to thank them.
+  </p>
+  <p>
+    May they have peace, health, and happiness.<br />May they also enjoy the good they create for the world.<br />I am willing to cherish all I receive, and through my own actions,<br />bring the same warmth into other lives.
+  </p>
+</section>`,
+
+  'affirmation-39': `<section>
+  <p>Dear self, I love you.</p>
+  <p>
+    May I be safe.<br />May I be healthy.<br />May my body be comfortable and full of vitality.<br />May my heart be steady, peaceful, and at ease.
+  </p>
+  <p>
+    May I be free from fear and worries that are not real.<br />May I be free from bitterness and hostility.<br />May I treat my body, mind, and feelings with gentleness.
+  </p>
+  <p>
+    I am willing to accept myself as I am.<br />I am willing to treat myself with care.<br />I am willing to embrace, with understanding and loving-kindness, the wounds I once carried.
+  </p>
+  <p>
+    May I have enough wisdom to care for my life.<br />May I have enough courage to transform.
+  </p>
+  <p>May I feel love, joy, and contentment every day.</p>
+  <p>
+    May I be safe.<br />May I be happy.<br />May I be free.
+  </p>
+  <p>
+    I love you, self.<br />I truly love you.
+  </p>
+</section>`,
+
+  'affirmation-40': `<section>
+  <p>Dear you, may you be safe.</p>
+  <p>
+    May you be healthy.<br />May your body be full of vitality.<br />May your heart be light, free, and joyful.
+  </p>
+  <p>
+    May you be free from pain, fear, and unease.<br />May you be treated with gentleness.<br />May you feel loved, cherished, and respected.
+  </p>
+  <p>
+    May you be free to be yourself.<br />May your uniqueness be seen and appreciated.<br />May you have the strength and opportunity to live your dreams.
+  </p>
+  <p>May you meet kind, sincere, and loving people in your life.</p>
+  <p>
+    May you keep courage in challenge.<br />May you feel joy in growth.<br />May you have a comfortable, beautiful, and abundant life.
+  </p>
+  <p>I am grateful that you came into my life.</p>
+  <p>
+    I am willing to love you with respect, understanding, and gentleness.<br />I am willing to support your freedom and growth.
+  </p>
+  <p>
+    May we nourish each other without binding each other.<br />May we create a life filled with love, trust, and joy together.
+  </p>
+  <p>
+    May you be happy.<br />May you be safe.<br />May you be free.
+  </p>
+  <p>May you become who you truly want to be.</p>
+</section>`,
+
+  'affirmation-41': `<section>
+  <p>
+    May my family be safe, healthy, and happy.<br />May my friends feel loved, supported, and cherished.<br />May my partners have strength and wisdom to live their aspirations.<br />May everyone I meet feel respect and goodwill.
+  </p>
+  <p>
+    May those who are working hard to live receive the support they need.<br />May those who feel alone meet warm companionship.<br />May those who feel afraid gradually find safety again.<br />May those who carry pain receive understanding, care, and comfort.
+  </p>
+  <p>
+    May everyone recognize their own worth.<br />May they be able to care for themselves, and have the chance to care for those they love.<br />May they grow, create, and explore with joy.<br />I am willing to look at every person I meet with loving eyes.
+  </p>
+  <p>
+    May the words I speak bring understanding and warmth.<br />May my actions create more beautiful experiences for the people around me.
+  </p>
+  <p>
+    May we all be safe.<br />May we all be happy.<br />May we all be free.
+  </p>
+</section>`,
+
+  'affirmation-42': `<section>
+  <p>
+    May all life be safe.<br />Near or far, known or unknown.<br />Strong or weak.<br />Old or young.<br />Seen or unseen.<br />Already born, or yet to arrive in this world.
+  </p>
+  <p>
+    May they all be safe.<br />May they all be happy.<br />May they all be free from harm and fear.
+  </p>
+  <p>
+    May people respect one another.<br />May people not look down on one another because of difference.
+  </p>
+  <p>
+    May we not harm one another with anger.<br />May we not wish suffering on others out of envy.
+  </p>
+  <p>
+    May every child be protected and cherished.<br />May every animal live in safety.<br />May life in the forests, rivers, oceans, and on the earth flourish.
+  </p>
+  <p>
+    Just as a mother would protect her child with her life,<br />may I also cultivate a vast and gentle heart.
+  </p>
+  <p>
+    May a box of cats be held in my arms,<br />and may my loving-kindness be unbound by distance, identity, or relationship.
+  </p>
+  <p>
+    May all beings be well.<br />May all beings be safe.<br />May all beings be free.
+  </p>
+</section>`,
+
+  'affirmation-43': `<section>
+  <p>
+    May I have a heart that is both gentle and firm.<br />I am willing to understand others’ feelings, and to respect my own.<br />I can treat others with care while also taking care of myself.<br />I can express disagreement gently.<br />I can have my own preferences, choices, and boundaries.
+  </p>
+  <p>
+    When misunderstanding arises,<br />may I have patience to listen, and courage to speak what is true.<br />May I not rush to criticize, blame, or dismiss.<br />May I first try to understand, then choose how to respond.<br />When others make mistakes, I am willing to keep understanding and compassion.<br />When I make mistakes, I am also willing to give myself the chance to learn and improve.<br />I do not need to control others in order to feel safe.
+  </p>
+  <p>
+    I am willing to let love include respect, freedom, and trust.<br />In intimacy, may I open my heart while remaining whole in myself.<br />May I care for myself with wisdom, and treat others with loving-kindness.
+  </p>
+</section>`,
+
+  'affirmation-44': `<section>
+  <p>Today, I choose to begin living with love.</p>
+  <p>
+    May my thoughts be filled with goodwill.<br />May my words be filled with respect.<br />May my actions bring warmth.
+  </p>
+  <p>May what I create be able to help others.</p>
+  <p>May my music bring people joy and feeling.</p>
+  <p>May my work help people connect, explore, and find resonance with one another.</p>
+  <p>May I have a healthy body, a clear mind, and abundant creativity.</p>
+  <p>In pursuing my dreams, may I not forget to enjoy life.</p>
+  <p>May I cherish food, music, sunlight, nature, and every sincere encounter.</p>
+  <p>May I have enough resources to care for myself and those I love.</p>
+  <p>May I be content, and still willing to keep growing.</p>
+  <p>May my success bring happiness not only to me, but also create more good possibilities for the people around me.</p>
+  <p>
+    May I live freely.<br />May I love sincerely.<br />May I create with joy.
+  </p>
+  <p>May my life become a place where love and goodwill flow.</p>
+</section>`,
+
+  'affirmation-45': `<section>
+  <p><strong>First, offer loving-kindness to yourself.</strong></p>
+  <p>
+    May I be safe.<br />May I be healthy.<br />May I be happy.<br />May I be free from pain and fear.<br />May I live with ease and freedom.
+  </p>
+  <p><strong>Next, offer loving-kindness to those you love.</strong></p>
+  <p>
+    May ___ be safe.<br />May ___ be healthy.<br />May ___ be happy.<br />May she be loved, respected, and cherished.<br />May she be free to be herself.
+  </p>
+  <p><strong>Then offer loving-kindness to the people around you.</strong></p>
+  <p>
+    May my family, friends, and partners be safe.<br />May they be healthy and happy.<br />May they receive the support they need.<br />May they have strength, courage, and joy.
+  </p>
+  <p><strong>Offer loving-kindness to strangers, and to those who disagree with me.</strong></p>
+  <p>
+    May they be safe.<br />May they be free from pain.<br />May they be treated with kindness.<br />May we release hostility and respect one another.
+  </p>
+  <p><strong>Finally, extend loving-kindness to all life.</strong></p>
+  <p>
+    May all beings be safe.<br />May all beings be healthy.<br />May all beings be happy.<br />May all beings be free from harm and fear.
+  </p>
+  <p>
+    May the world be filled with loving-kindness.<br />May every life be cherished.
+  </p>
+  <p>May I begin today’s life carrying this love.</p>
+</section>`,
+
+  'affirmation-46': `<section>
+  <p>Today, I thank this mattress that lets me rest in peace.</p>
+  <p>I thank the earth for iron ore, quartz, and minerals of many kinds.</p>
+  <p>I thank sunlight, rain, soil, and air for nourishing rubber tree after rubber tree.</p>
+  <p>I thank the rubber trees that, after years of growth, provide the material for natural latex.</p>
+  <p>I thank the natural resources formed over long ages of the earth, which give people the chance to create soft, comfortable products that support the body.</p>
+  <p>May we cherish the earth’s resources.</p>
+  <p>May mining and planting cause as little harm as possible to land and life.</p>
+  <p>May forests be healthy, rivers clean, and soil abundant.</p>
+  <p>May every life that depends on this land be safe, healthy, and flourishing.</p>
+  <p>Thank you, earth.</p>
+  <p>Thank you for such abundant materials, so that I may have comfortable sleep.</p>
+</section>`,
+
+  'affirmation-47': `<section>
+  <p>I thank every farmer who grows rubber trees.</p>
+  <p>Thank you for tending the trees, waiting for them to grow, and collecting latex drop by drop at dawn.</p>
+  <p>I thank every person who works in the mines.</p>
+  <p>Thank you for extracting ore, operating machines, and bringing materials hidden deep in the earth into people’s lives.</p>
+  <p>I thank workers in oil and gas who provide materials needed to make so many modern products.</p>
+  <p>I thank everyone who transports, sorts, stores, and processes raw materials.</p>
+  <p>Even if we never meet, your work may become part of my comfortable sleep tonight.</p>
+  <p>May your work be safe.</p>
+  <p>May you have fair pay, enough rest, and healthy bodies.</p>
+  <p>May your families be safe.</p>
+  <p>May your labor be respected.</p>
+  <p>May you also return to a comfortable home after a day’s work, lie on a soft bed, and sleep in peace.</p>
+  <p>Thank you.</p>
+</section>`,
+
+  'affirmation-48': `<section>
+  <p>I thank every scientist who studies materials.</p>
+  <p>Thank you for researching steel, latex, silicone, and memory foam, so people understand what materials can do.</p>
+  <p>I thank engineers who design machines, refine formulas, and seek mattress structures that are more comfortable and durable.</p>
+  <p>I thank every worker in the factory.</p>
+  <p>Thank you to those who make the springs.</p>
+  <p>Thank you to those who foam, cut latex, and cut foam.</p>
+  <p>Thank you to those who make fabric, sew covers, and assemble mattresses.</p>
+  <p>Thank you to those who check quality, repair equipment, and keep the factory clean.</p>
+  <p>You come from different places and bring different skills.</p>
+  <p>Some of you may have spent many years mastering your craft.</p>
+  <p>And all that different knowledge, time, and effort finally becomes one mattress.</p>
+  <p>May you feel safe and respected at work.</p>
+  <p>May your abilities be seen.</p>
+  <p>May your work bring a steady life for yourselves and your families.</p>
+  <p>May you also enjoy the good things you create.</p>
+  <p>Thank you for turning human knowledge and creativity into comfort I can feel every day.</p>
+</section>`,
+
+  'affirmation-49': `<section>
+  <p>I thank every truck driver.</p>
+  <p>Thank you for traveling the roads and carrying materials and mattresses to many places.</p>
+  <p>I thank sailors, port workers, warehouse staff, and movers.</p>
+  <p>Thank you for giving products made far away the chance to reach my city.</p>
+  <p>I thank those who build roads, maintain traffic, and repair vehicles.</p>
+  <p>I thank those who run mattress stores.</p>
+  <p>Thank you to shop owners who carry the responsibility of the business.</p>
+  <p>Thank you to landlords who provide the space to operate.</p>
+  <p>Thank you to salespeople who take time to introduce materials and let me lie down and try different mattresses.</p>
+  <p>I thank the cleaning staff who keep the store tidy.</p>
+  <p>I thank everyone who took part.</p>
+  <p>Even a brief encounter connects our lives in that moment.</p>
+  <p>May your work go smoothly, and your lives be steady.</p>
+  <p>May you be treated with kindness, and may you treat yourselves with kindness too.</p>
+  <p>May you all receive the support you need.</p>
+  <p>Thank you for giving this mattress the chance to enter my life.</p>
+</section>`,
+
+  'affirmation-50': `<section>
+  <p>
+    It gives us a sense of balance and uprightness,<br />like a steady axis passing through the center of the body,<br />and lets us taste, even slightly, the power of the central channel.<br />Simply by taking a good posture,<br />the winds within us begin to stir and become active in the central channel.
+  </p>
+  <p>I am grateful that I can stretch my neck and shoulders</p>
 </section>`,
 };

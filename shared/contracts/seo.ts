@@ -11,9 +11,9 @@ export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_AUTHOR = '冠均';
 export const SITE_DESCRIPTION =
-  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄三十五篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
+  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄五十篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
 export const SITE_DESCRIPTION_EN =
-  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with thirty-five read-only notes on self-love, safety, intimacy, and creativity.';
+  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with fifty read-only notes on self-love, safety, intimacy, and creativity.';
 export const SITE_SAME_AS = ['https://www.instagram.com/riddles.tw'] as const;
 /** 填入 Google Search Console 驗證碼後會輸出 meta；空白則不輸出。 */
 export const SITE_GOOGLE_VERIFICATION = '';
@@ -72,6 +72,21 @@ export const JOURNAL_KEYWORDS: Readonly<Record<string, readonly string[]>> = {
   'affirmation-33': ['有意識的愛', '善意'],
   'affirmation-34': ['安全感', '被尊重'],
   'affirmation-35': ['健康', '感恩'],
+  'affirmation-36': ['蛻變', '新階段'],
+  'affirmation-37': ['信任', '休息'],
+  'affirmation-38': ['感恩', '珍惜'],
+  'affirmation-39': ['慈愛', '自愛'],
+  'affirmation-40': ['祝福', '自由'],
+  'affirmation-41': ['善意', '祝福'],
+  'affirmation-42': ['眾生', '慈愛'],
+  'affirmation-43': ['慈愛', '界線'],
+  'affirmation-44': ['慈愛', '創造'],
+  'affirmation-45': ['慈心', '祝福'],
+  'affirmation-46': ['感恩', '大地'],
+  'affirmation-47': ['感恩', '勞動'],
+  'affirmation-48': ['感恩', '製造'],
+  'affirmation-49': ['感恩', '物流'],
+  'affirmation-50': ['山式', '平衡'],
 };
 
 export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = {
@@ -110,6 +125,21 @@ export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = 
   'affirmation-33': ['conscious love', 'kindness'],
   'affirmation-34': ['safety', 'respect'],
   'affirmation-35': ['health', 'gratitude'],
+  'affirmation-36': ['transformation', 'new stage'],
+  'affirmation-37': ['trust', 'rest'],
+  'affirmation-38': ['gratitude', 'cherish'],
+  'affirmation-39': ['loving-kindness', 'self-love'],
+  'affirmation-40': ['blessing', 'freedom'],
+  'affirmation-41': ['kindness', 'blessing'],
+  'affirmation-42': ['all beings', 'loving-kindness'],
+  'affirmation-43': ['loving-kindness', 'boundaries'],
+  'affirmation-44': ['loving-kindness', 'creation'],
+  'affirmation-45': ['metta', 'blessing'],
+  'affirmation-46': ['gratitude', 'earth'],
+  'affirmation-47': ['gratitude', 'labor'],
+  'affirmation-48': ['gratitude', 'manufacturing'],
+  'affirmation-49': ['gratitude', 'logistics'],
+  'affirmation-50': ['mountain pose', 'balance'],
 };
 
 export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
@@ -171,6 +201,36 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
     '我值得被關心、被在乎、被尊重。我可以在關係中感到安全、放鬆、被愛，也能自在地信任與溝通。',
   'affirmation-35':
     '我愛我的身體。我感謝自己的身體，讓我能夠行走、擁抱、親密、玩樂、探索與創造。',
+  'affirmation-36':
+    '感謝我正處於一個新的階段。感謝我正在蛻變，轉化舊的身分，也正在學習新的能力。',
+  'affirmation-37':
+    '我選擇相信，我的身體是有力量的。我選擇相信，你正在為我整理方向，也正在為我鋪陳未來。',
+  'affirmation-38':
+    '我感謝眼前這份美好。我看見它背後無數人的知識、時間、勞動與付出。',
+  'affirmation-39':
+    '親愛的自己，我愛你。願我平安。願我健康。願我的身體舒適而有活力。',
+  'affirmation-40':
+    '親愛的妳，願你平安。願你健康。願你的身體充滿活力。願你的心輕鬆、自在、喜悅。',
+  'affirmation-41':
+    '願我的家人平安、健康、幸福。願我的朋友們感到被愛、被支持、被珍惜。',
+  'affirmation-42':
+    '願一切生命平安。無論遠近，無論相識或陌生。願他們都能平安。願他們都能幸福。',
+  'affirmation-43':
+    '願我擁有一顆溫柔而堅定的心。我願意理解別人的感受，也願意尊重自己的感受。',
+  'affirmation-44':
+    '今天，我選擇帶著愛開始生活。願我的思想充滿善意。願我的言語充滿尊重。',
+  'affirmation-45':
+    '首先，將慈愛給自己。願我平安。願我健康。願我幸福。願我遠離痛苦與恐懼。',
+  'affirmation-46':
+    '今天，我感謝這張讓我能夠安心休息的床墊。我感謝大地提供鐵礦、石英與各種礦物。',
+  'affirmation-47':
+    '我感謝每一位種植橡膠樹的農民。感謝你們照顧樹木、等待它們成長，在清晨收集一滴又一滴乳膠。',
+  'affirmation-48':
+    '我感謝每一位研究材料的科學家。感謝你們研究鋼鐵、乳膠、矽膠與記憶泡棉，讓人們理解材料的特性。',
+  'affirmation-49':
+    '我感謝每一位貨車司機。感謝你們行駛在道路上，將材料與床墊送往不同的地方。',
+  'affirmation-50':
+    '它賦予我們平衡感和挺直感，這種如同有條穩定的軸線穿過身體中心的感覺，讓我們些微地體驗到中脈的力量。',
 };
 
 export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
@@ -232,6 +292,36 @@ export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
     'I deserve to be cared for, valued, and respected. I can feel safe, relaxed, and loved while trusting and communicating.',
   'affirmation-35':
     'I love my body. I thank my body for letting me walk, hug, play, explore, and create.',
+  'affirmation-36':
+    'I am grateful to be in a new stage. I am transforming, releasing an old identity, and learning new abilities.',
+  'affirmation-37':
+    'I choose to trust that my body has strength. I choose to trust that you are clarifying my direction and preparing my future.',
+  'affirmation-38':
+    'I am grateful for this beauty before me. I see the knowledge, time, labor, and care of countless people behind it.',
+  'affirmation-39':
+    'Dear self, I love you. May I be safe. May I be healthy. May my body be comfortable and full of vitality.',
+  'affirmation-40':
+    'Dear you, may you be safe. May you be healthy. May your body be full of vitality, and your heart light, free, and joyful.',
+  'affirmation-41':
+    'May my family be safe, healthy, and happy. May my friends feel loved, supported, and cherished.',
+  'affirmation-42':
+    'May all life be safe. Near or far, known or unknown. May they all be safe. May they all be happy.',
+  'affirmation-43':
+    'May I have a heart that is both gentle and firm. I am willing to understand others’ feelings and respect my own.',
+  'affirmation-44':
+    'Today, I choose to begin living with love. May my thoughts be filled with goodwill. May my words be filled with respect.',
+  'affirmation-45':
+    'First, offer loving-kindness to yourself. May I be safe. May I be healthy. May I be happy. May I be free from pain and fear.',
+  'affirmation-46':
+    'Today, I thank this mattress that lets me rest in peace. I thank the earth for iron ore, quartz, and minerals.',
+  'affirmation-47':
+    'I thank every farmer who grows rubber trees. Thank you for tending the trees, waiting for them to grow, and collecting latex drop by drop at dawn.',
+  'affirmation-48':
+    'I thank every scientist who studies materials. Thank you for researching steel, latex, silicone, and memory foam so we understand what materials can do.',
+  'affirmation-49':
+    'I thank every truck driver. Thank you for traveling the roads and carrying materials and mattresses to many places.',
+  'affirmation-50':
+    'It gives us a sense of balance and uprightness—like a steady axis through the body’s center—and a slight taste of the central channel’s power.',
 };
 
 export function siteUrl(path: string = '/'): string {
