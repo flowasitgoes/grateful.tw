@@ -243,7 +243,8 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
   'affirmation-52': '我不需要什麼都會，才值得被尊重。',
   'affirmation-53':
     '在沙發上，在餐桌上，妳總是輕盈放鬆的，和我說起了未來生活的可能性。',
-  'affirmation-54': '感謝妳願意解釋，而不是讓誤會繼續。',
+  'affirmation-54':
+    '愛可以同時有靠近與空間。我可以尊重界線，並在信任中依然感受到親密。',
 };
 
 export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
@@ -339,7 +340,8 @@ export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
   'affirmation-52': 'I do not need to know everything to deserve respect.',
   'affirmation-53':
     'On the sofa, at the table, you are always light and at ease, talking with me about possible futures.',
-  'affirmation-54': 'Thank you for being willing to explain, instead of letting the misunderstanding continue.',
+  'affirmation-54':
+    'Love can hold both closeness and space. I can respect boundaries and still feel intimacy in trust.',
 };
 
 export function siteUrl(path: string = '/'): string {

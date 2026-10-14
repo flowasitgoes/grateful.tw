@@ -54,6 +54,7 @@ P0 至少有一篇，不做空列表畫面。
 - 首頁預設 `og:image`：`/og-image.png`（九宮格，1200×630）；首頁 JSON-LD 為 WebSite＋ItemList
 - favicon：16／32 PNG 與 `favicon.ico`；加入主畫面用 180／192／512
 - 閱讀頁：`篇名｜感恩日記 Day n｜grateful.tw`；description 為 `感恩日記｜篇名。{開頭文意} 適合每日感恩日記與肯定語練習，主題：{主題詞}。`；`og:image` 為 `/og/:id.jpg`；`og:image:alt` 為 `篇名｜感恩日記`；canonical 為該篇 URL
+- `{開頭文意}`：優先正面方法或可練習的肯定句；場景敘事僅在無法抽出方法句時使用；不以困擾搜尋詞作為 title 或 description 主句
 - Article JSON-LD：含 `author`（冠均）、`keywords`、`about`
 - 分享／爬蟲：`build:web` 產每篇字卡 PNG 與 `journals/:id/index.html`（SPA shell＋該篇 meta／JSON-LD）
 - Search Console 核心追蹤詞：感恩日記、每日感恩、肯定語、Affirmation、自愛、安全感、親密關係、創造力；提交 `sitemap.xml`；可選 `SITE_GOOGLE_VERIFICATION`

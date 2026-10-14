@@ -22,7 +22,7 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | P0 | 每一篇有建立的日期與時間（資料仍保留；畫面暫隱藏不顯示）。 | 列表與閱讀頁 |
 | P0 | 右上漢堡從右側滑出全高選單；第一列為 IG 圖示＋「riddles.tw」，開 https://www.instagram.com/riddles.tw | 選單 |
 | P0 | 十一章、每日精簡版、系統化結構，以及 Day 14～54 短箋，共 54 篇只讀文稿。 | 只讀 |
-| P0 | 全站與每篇有獨立文件標題與 description；閱讀頁標題含「感恩日記 Day n」，description 含主題詞，og:image:alt 為「篇名｜感恩日記」。 | SEO |
+| P0 | 全站與每篇有獨立文件標題與 description；閱讀頁標題含「感恩日記 Day n」，description 含主題詞，og:image:alt 為「篇名｜感恩日記」。description 開頭文意優先正面方法／肯定句，不以困擾搜尋詞當主句。 | SEO |
 | P0 | 分享到 Facebook 等時，個別日記連結的靜態 HTML 含該篇 title／description／OG；每篇獨立 1200×630 字卡縮圖。 | SEO |
 | P0 | 閱讀頁有上一篇／下一篇；Article／首頁 ItemList JSON-LD；Search Console 追蹤核心詞並可提交 sitemap。 | SEO |
 | P0 | AI 搜尋友善：llms.txt、允許 AI 爬蟲、清楚的站點／篇目機器可讀摘要，利於 ChatGPT／Claude 等引用。 | SEO |
@@ -98,3 +98,4 @@ P0 **沒有撰寫界面、沒有登入、不接 Firebase 資料。** 頂欄漢�
 | 2026-10-14 | 冠均 | 新增 Day 52：我值得被溫柔地支持，感受到尊嚴、自信與完整 |
 | 2026-10-14 | 冠均 | 新增 Day 53：感謝我們可以一起想像未來 |
 | 2026-10-15 | 冠均 | 新增 Day 54：一個人的界線不是對我的否定 |
+| 2026-10-15 | 冠均 | SEO：description 開頭文意優先正面方法／肯定句（不以困擾搜尋詞當主句） |

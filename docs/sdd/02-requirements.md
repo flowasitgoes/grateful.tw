@@ -16,7 +16,7 @@
 | READ-05 | 閱讀頁 `h1` 不含「一、」等序號；畫面右下角 **Day n**。日期時間暫隱藏。 | 兩端 |
 | READ-06 | 閱讀頁正文下方有「上一篇／下一篇」導覽（依 Day 序）；顯示 Day 標籤與篇名；第一篇無上一篇，最後一篇無下一篇。 | 兩端 |
 | SEO-01 | 全站文件標題為「感恩日記｜grateful.tw」；有 description、Open Graph（含 `og:image` 1200×630）、canonical、favicon、`robots.txt`、`sitemap.xml`；首頁 JSON-LD 含 WebSite 與 ItemList（全部篇目）。 | Web |
-| SEO-02 | 每篇閱讀頁文件標題為「篇名｜感恩日記 Day n｜grateful.tw」；description 為「感恩日記｜篇名。{該篇開頭文意} 適合每日感恩日記與肯定語練習，主題：{1～2 個主題詞}。」；`og:image:alt` 為「篇名｜感恩日記」。 | 兩端 |
+| SEO-02 | 每篇閱讀頁文件標題為「篇名｜感恩日記 Day n｜grateful.tw」；description 為「感恩日記｜篇名。{該篇開頭文意} 適合每日感恩日記與肯定語練習，主題：{1～2 個主題詞}。」；`og:image:alt` 為「篇名｜感恩日記」。`{開頭文意}` 優先使用正面方法或可練習的肯定句；場景敘事僅在無法抽出方法句時使用。不以困擾搜尋詞作為 title 或 description 主句。 | 兩端 |
 | SEO-03 | Facebook／社群爬蟲抓取 `/journals/:id` 時，靜態 HTML 須含該篇 title、description、Open Graph（含該篇 `og:image` `/og/:id.jpg`）、canonical 與 Article JSON-LD（含 author、keywords、about）。 | Web |
 | SEO-04 | `build:web` 為每篇產出 1200×630 字卡 JPEG（篇名＋「感恩日記」＋ Day），路徑 `/og/:id.jpg`。全站仍保留 `/og-image.png` 作首頁預設。 | Web |
 | SEO-05 | Search Console：提交 `sitemap.xml`；追蹤核心詞「感恩日記、每日感恩、肯定語、Affirmation、自愛、安全感、親密關係、創造力」。可選填 `SITE_GOOGLE_VERIFICATION` 輸出驗證 meta。 | Web |
