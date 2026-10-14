@@ -26,7 +26,7 @@ describe('formatJournalDateTime', () => {
 });
 
 describe('JOURNALS', () => {
-  it('has fifty-three entries, newest first is Day 53 / affirmation-53', () => {
+  it('has fifty-four entries, newest first is Day 54 / affirmation-54', () => {
     expect(JOURNALS).toHaveLength(JOURNAL_COUNT);
     expect(JOURNALS[0]?.id).toBe('affirmation-1');
     expect(JOURNALS[0]?.createdAt).toBe('2026-09-01T17:08:00+08:00');
@@ -44,7 +44,9 @@ describe('JOURNALS', () => {
     expect(JOURNALS[51]?.createdAt).toBe('2026-10-14T11:24:00+08:00');
     expect(JOURNALS[52]?.id).toBe('affirmation-53');
     expect(JOURNALS[52]?.createdAt).toBe('2026-10-14T11:30:00+08:00');
-    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-53');
+    expect(JOURNALS[53]?.id).toBe('affirmation-54');
+    expect(JOURNALS[53]?.createdAt).toBe('2026-10-15T01:23:00+08:00');
+    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-54');
   });
 });
 
@@ -93,6 +95,7 @@ describe('journalDayLabel', () => {
     expect(journalDayLabel('affirmation-51')).toBe('Day 51');
     expect(journalDayLabel('affirmation-52')).toBe('Day 52');
     expect(journalDayLabel('affirmation-53')).toBe('Day 53');
+    expect(journalDayLabel('affirmation-54')).toBe('Day 54');
   });
 });
 
@@ -142,6 +145,7 @@ describe('journalSubtitle', () => {
     expect(journalSubtitle('affirmation-51')).toBe('感謝妳幫助我感覺自己很好');
     expect(journalSubtitle('affirmation-52')).toBe('我值得被溫柔地支持，感受到尊嚴、自信與完整');
     expect(journalSubtitle('affirmation-53')).toBe('感謝我們可以一起想像未來');
+    expect(journalSubtitle('affirmation-54')).toBe('一個人的界線不是對我的否定');
   });
 });
 
@@ -159,7 +163,9 @@ describe('journalAdjacent', () => {
     expect(journalAdjacent('affirmation-52').prev?.id).toBe('affirmation-51');
     expect(journalAdjacent('affirmation-52').next?.id).toBe('affirmation-53');
     expect(journalAdjacent('affirmation-53').prev?.id).toBe('affirmation-52');
-    expect(journalAdjacent('affirmation-53').next).toBeUndefined();
+    expect(journalAdjacent('affirmation-53').next?.id).toBe('affirmation-54');
+    expect(journalAdjacent('affirmation-54').prev?.id).toBe('affirmation-53');
+    expect(journalAdjacent('affirmation-54').next).toBeUndefined();
     expect(journalAdjacent('affirmation-20').prev?.id).toBe('affirmation-19');
     expect(journalAdjacent('affirmation-20').next?.id).toBe('affirmation-21');
   });

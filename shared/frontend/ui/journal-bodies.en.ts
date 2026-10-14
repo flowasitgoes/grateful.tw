@@ -1,4 +1,4 @@
-/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-53`. */
+/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-54`. */
 export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
   'affirmation-1': `<section>
   <p>I love you, Guanjun.<br />I truly love you.<br />I trust you.</p>
@@ -763,5 +763,37 @@ export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
   <p>I feel lucky and happy that our intentions meet like this.</p>
   <p>I am happy about the relationship we are building.</p>
   <p>May we keep relating sincerely, feel each other’s rhythm, and explore a life that feels happy together.</p>
+</section>`,
+
+  'affirmation-54': `<section>
+  <p><strong>1. Thank you for being willing to explain, instead of letting the misunderstanding continue.</strong></p>
+  <p>I am grateful that she was willing to help me understand what she really meant.</p>
+  <p><strong>2. Thank you for considering my feelings while expressing your own needs.</strong></p>
+  <p>
+    I am grateful that she was willing to care for my feelings,<br />and still express her needs honestly, gently, and firmly.
+  </p>
+  <p><strong>3. Thank you, Chia-Yun, for being willing to find balance with me.</strong></p>
+  <p><strong>4. Thank you for this misunderstanding, which let me know love again.</strong></p>
+  <p>I am beginning to understand that needing her own space does not mean she does not love me.</p>
+  <p>Expressing discomfort does not mean she is rejecting me.</p>
+  <p>I can learn not to rush into reading her needs as a rejection of me.</p>
+  <p>I am grateful for the chance to grow in this relationship, and grateful that she is willing to communicate with me.</p>
+  <p>I can trust the intentions she expresses clearly.</p>
+  <p>When she says she is not rejecting me, I can believe what she says.</p>
+  <p>I can respect her needs and also care for my own feelings.</p>
+  <p>Both of our needs deserve to be taken seriously.</p>
+  <p>I can be loved, and I can also not know everything yet.</p>
+  <p>I do not need to know everything from the start; I am willing to learn and adjust.</p>
+  <p>I am capable of building a relationship where we both feel at ease.</p>
+  <p>I am willing to find balance together through listening, communication, and real action.</p>
+  <p>I deserve to be loved, and I am capable of loving well.</p>
+  <p>I thank her for being willing to share her true feelings with me, and for being willing to understand me and see my effort.</p>
+  <p>
+    I am learning to believe that someone’s boundary is not a rejection of me, and that someone’s need does not mean she does not love me.
+  </p>
+  <p>I can receive love with ease, and I can also respect each other’s freedom and space.</p>
+  <p>
+    <strong>New belief:</strong> “She can enjoy being with me and still need space of her own. I can respect her boundaries and still feel the closeness between us.”
+  </p>
 </section>`,
 };

@@ -9,7 +9,7 @@ export interface Journal {
 export const JOURNAL_TITLE = '感恩日記';
 export const JOURNAL_TITLE_EN = 'Gratitude Journal';
 
-export const JOURNAL_COUNT = 53;
+export const JOURNAL_COUNT = 54;
 
 export const JOURNAL_HEADINGS: Readonly<Record<string, string>> = {
   'affirmation-1': '愛、信任與安全感',
@@ -65,6 +65,7 @@ export const JOURNAL_HEADINGS: Readonly<Record<string, string>> = {
   'affirmation-51': '感謝妳幫助我感覺自己很好',
   'affirmation-52': '我值得被溫柔地支持，感受到尊嚴、自信與完整',
   'affirmation-53': '感謝我們可以一起想像未來',
+  'affirmation-54': '一個人的界線不是對我的否定',
 };
 
 export const JOURNAL_HEADINGS_EN: Readonly<Record<string, string>> = {
@@ -121,6 +122,7 @@ export const JOURNAL_HEADINGS_EN: Readonly<Record<string, string>> = {
   'affirmation-51': 'Thank You for Helping Me Feel Good About Myself',
   'affirmation-52': 'I Deserve Gentle Support, Dignity, Confidence, and Wholeness',
   'affirmation-53': 'Grateful We Can Imagine the Future Together',
+  'affirmation-54': 'Someone’s Boundary Is Not a Rejection of Me',
 };
 
 function journalCreatedAt(n: number): string {
@@ -243,6 +245,9 @@ function journalCreatedAt(n: number): string {
   }
   if (n === 53) {
     return '2026-10-14T11:30:00+08:00';
+  }
+  if (n === 54) {
+    return '2026-10-15T01:23:00+08:00';
   }
   return `2026-09-${String(n).padStart(2, '0')}T17:08:00+08:00`;
 }

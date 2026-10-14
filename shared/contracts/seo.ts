@@ -11,9 +11,9 @@ export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_AUTHOR = '冠均';
 export const SITE_DESCRIPTION =
-  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄五十三篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
+  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄五十四篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
 export const SITE_DESCRIPTION_EN =
-  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with fifty-three read-only notes on self-love, safety, intimacy, and creativity.';
+  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with fifty-four read-only notes on self-love, safety, intimacy, and creativity.';
 export const SITE_SAME_AS = ['https://www.instagram.com/riddles.tw'] as const;
 /** 填入 Google Search Console 驗證碼後會輸出 meta；空白則不輸出。 */
 export const SITE_GOOGLE_VERIFICATION = '';
@@ -90,6 +90,7 @@ export const JOURNAL_KEYWORDS: Readonly<Record<string, readonly string[]>> = {
   'affirmation-51': ['尊重', '自信'],
   'affirmation-52': ['尊嚴', '支持'],
   'affirmation-53': ['未來', '關係'],
+  'affirmation-54': ['界線', '信任'],
 };
 
 export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = {
@@ -146,6 +147,7 @@ export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = 
   'affirmation-51': ['respect', 'confidence'],
   'affirmation-52': ['dignity', 'support'],
   'affirmation-53': ['future', 'relationship'],
+  'affirmation-54': ['boundaries', 'trust'],
 };
 
 export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
@@ -241,6 +243,7 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
   'affirmation-52': '我不需要什麼都會，才值得被尊重。',
   'affirmation-53':
     '在沙發上，在餐桌上，妳總是輕盈放鬆的，和我說起了未來生活的可能性。',
+  'affirmation-54': '感謝妳願意解釋，而不是讓誤會繼續。',
 };
 
 export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
@@ -336,6 +339,7 @@ export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
   'affirmation-52': 'I do not need to know everything to deserve respect.',
   'affirmation-53':
     'On the sofa, at the table, you are always light and at ease, talking with me about possible futures.',
+  'affirmation-54': 'Thank you for being willing to explain, instead of letting the misunderstanding continue.',
 };
 
 export function siteUrl(path: string = '/'): string {
