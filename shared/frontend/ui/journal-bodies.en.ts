@@ -1,4 +1,4 @@
-/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-50`. */
+/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-53`. */
 export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
   'affirmation-1': `<section>
   <p>I love you, Guanjun.<br />I truly love you.<br />I trust you.</p>
@@ -720,5 +720,48 @@ export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
     It gives us a sense of balance and uprightness,<br />like a steady axis passing through the center of the body,<br />and lets us taste, even slightly, the power of the central channel.<br />Simply by taking a good posture,<br />the winds within us begin to stir and become active in the central channel.
   </p>
   <p>I am grateful that I can stretch my neck and shoulders</p>
+</section>`,
+
+  'affirmation-51': `<section>
+  <p>Today, she loved me in a gentle, careful way.</p>
+  <p>She has skill, experience, and her own ideas.</p>
+  <p>But when she helped me, she never made me feel lesser.</p>
+  <p>She did not make me feel ashamed for not knowing something.</p>
+  <p>She did not dismiss my taste when my choices differed from hers.</p>
+  <p>
+    She was willing to truly understand my ideas, help me find clothes that suit me, and let me feel good about myself even while receiving help.
+  </p>
+  <p>
+    When we went home to try things on, she appreciated my choices, and together we felt the fabric, heard the sound of the buttons, and noticed the beauty of the whole look.
+  </p>
+  <p>I am happy that my taste can be understood.</p>
+  <p>I am also grateful to myself—I really do have my own unique aesthetic, ideas, and creativity.</p>
+  <p>I deserve to trust my own feelings.</p>
+  <p>I deserve to be appreciated.</p>
+  <p>I deserve to feel confident and whole even when I am being helped.</p>
+  <p>I thank you for letting me experience this kind of love.</p>
+  <p>I am also willing to treat everyone around me with the same respect, gentleness, and without putting anyone down.</p>
+</section>`,
+
+  'affirmation-52': `<section>
+  <p>I do not need to know everything to deserve respect.</p>
+  <p>I can not know, I can learn, and I can ask for help.</p>
+  <p>My worth does not shrink because someone else has more experience than I do.</p>
+  <p>I deserve to feel dignity, confidence, and wholeness even while being helped.</p>
+  <p>I deserve to be supported gently—not guided in a way that puts me down.</p>
+</section>`,
+
+  'affirmation-53': `<section>
+  <p>On the sofa, at the table, you are always light and at ease, talking with me about possible futures.</p>
+  <p>You said that if I had a double bed, she could sleep here.</p>
+  <p>If you brought your laptop, you could work or take class here the next day.</p>
+  <p>You have also mentioned that we could meet your students someday, shop together, and share a meal.</p>
+  <p>These natural words, flowing from your heart, make me feel warm.</p>
+  <p>I am grateful that you are willing to include me in your imagination of the future.</p>
+  <p>I am also grateful that we can talk about the possibilities of life together.</p>
+  <p>We keep creating in the everyday.</p>
+  <p>I feel lucky and happy that our intentions meet like this.</p>
+  <p>I am happy about the relationship we are building.</p>
+  <p>May we keep relating sincerely, feel each other’s rhythm, and explore a life that feels happy together.</p>
 </section>`,
 };

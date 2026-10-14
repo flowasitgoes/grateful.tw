@@ -26,8 +26,8 @@ describe('first journal', () => {
     expect(html).toContain('routerLink');
   });
 
-  it('splits eleven chapters, daily short, structure, and later notes into fifty articles', () => {
-    expect(Object.keys(JOURNAL_HEADINGS)).toHaveLength(50);
+  it('splits eleven chapters, daily short, structure, and later notes into fifty-three articles', () => {
+    expect(Object.keys(JOURNAL_HEADINGS)).toHaveLength(53);
     expect(JOURNAL_HEADINGS['affirmation-1']).toBe('愛、信任與安全感');
     expect(JOURNAL_HEADINGS['affirmation-2']).toBe('自愛與自我接納');
     expect(JOURNAL_HEADINGS['affirmation-3']).toBe('內在小孩與療癒');
@@ -78,6 +78,9 @@ describe('first journal', () => {
     expect(JOURNAL_HEADINGS['affirmation-48']).toBe('感謝工程師、工廠與所有製造床墊的人');
     expect(JOURNAL_HEADINGS['affirmation-49']).toBe('感謝物流、門市與所有讓床墊來到我面前的人');
     expect(JOURNAL_HEADINGS['affirmation-50']).toBe('「山式」Mountain Pose');
+    expect(JOURNAL_HEADINGS['affirmation-51']).toBe('感謝妳幫助我感覺自己很好');
+    expect(JOURNAL_HEADINGS['affirmation-52']).toBe('我值得被溫柔地支持，感受到尊嚴、自信與完整');
+    expect(JOURNAL_HEADINGS['affirmation-53']).toBe('感謝我們可以一起想像未來');
     expect(html).toContain("@case ('affirmation-1')");
     expect(html).toContain("@case ('affirmation-14')");
     expect(html).toContain("@case ('affirmation-34')");
@@ -97,6 +100,9 @@ describe('first journal', () => {
     expect(html).toContain("@case ('affirmation-48')");
     expect(html).toContain("@case ('affirmation-49')");
     expect(html).toContain("@case ('affirmation-50')");
+    expect(html).toContain("@case ('affirmation-51')");
+    expect(html).toContain("@case ('affirmation-52')");
+    expect(html).toContain("@case ('affirmation-53')");
     expect(html).toContain('我愛你，冠均。');
     expect(html).toContain('親愛的孩子，我們很高興你來到這個世界。');
     expect(html).toContain('1. 連結自己');
@@ -134,6 +140,12 @@ describe('first journal', () => {
     expect(html).toContain('謝謝你們讓這張床墊有機會來到我的生活。');
     expect(html).toContain('讓我們些微地體驗到中脈的力量。');
     expect(html).toContain('我感謝自己能夠舒展頸部和肩膀');
+    expect(html).toContain('今天，她用一種很溫柔、細緻的方式愛我。');
+    expect(html).toContain('我也願意用同樣尊重、溫柔、不貶低他人的方式，對待身邊每一個人。');
+    expect(html).toContain('我不需要什麼都會，才值得被尊重。');
+    expect(html).toContain('我值得被溫柔地支持，而不是被貶低地指導。');
+    expect(html).toContain('在沙發上，在餐桌上，妳總是輕盈放鬆的，和我說起了未來生活的可能性。');
+    expect(html).toContain('願我們持續真誠地相處，感覺彼此的節奏，一起探索感到幸福的生活。');
     expect(html).not.toContain('建議公式');
   });
 });

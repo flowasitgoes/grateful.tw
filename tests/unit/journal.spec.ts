@@ -26,7 +26,7 @@ describe('formatJournalDateTime', () => {
 });
 
 describe('JOURNALS', () => {
-  it('has fifty entries, newest first is Day 50 / affirmation-50', () => {
+  it('has fifty-three entries, newest first is Day 53 / affirmation-53', () => {
     expect(JOURNALS).toHaveLength(JOURNAL_COUNT);
     expect(JOURNALS[0]?.id).toBe('affirmation-1');
     expect(JOURNALS[0]?.createdAt).toBe('2026-09-01T17:08:00+08:00');
@@ -38,7 +38,13 @@ describe('JOURNALS', () => {
     expect(JOURNALS[48]?.createdAt).toBe('2026-10-13T10:30:00+08:00');
     expect(JOURNALS[49]?.id).toBe('affirmation-50');
     expect(JOURNALS[49]?.createdAt).toBe('2026-10-13T10:32:00+08:00');
-    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-50');
+    expect(JOURNALS[50]?.id).toBe('affirmation-51');
+    expect(JOURNALS[50]?.createdAt).toBe('2026-10-14T11:21:00+08:00');
+    expect(JOURNALS[51]?.id).toBe('affirmation-52');
+    expect(JOURNALS[51]?.createdAt).toBe('2026-10-14T11:24:00+08:00');
+    expect(JOURNALS[52]?.id).toBe('affirmation-53');
+    expect(JOURNALS[52]?.createdAt).toBe('2026-10-14T11:30:00+08:00');
+    expect(journalsNewestFirst()[0]?.id).toBe('affirmation-53');
   });
 });
 
@@ -84,6 +90,9 @@ describe('journalDayLabel', () => {
     expect(journalDayLabel('affirmation-48')).toBe('Day 48');
     expect(journalDayLabel('affirmation-49')).toBe('Day 49');
     expect(journalDayLabel('affirmation-50')).toBe('Day 50');
+    expect(journalDayLabel('affirmation-51')).toBe('Day 51');
+    expect(journalDayLabel('affirmation-52')).toBe('Day 52');
+    expect(journalDayLabel('affirmation-53')).toBe('Day 53');
   });
 });
 
@@ -130,6 +139,9 @@ describe('journalSubtitle', () => {
     expect(journalSubtitle('affirmation-48')).toBe('感謝工程師、工廠與所有製造床墊的人');
     expect(journalSubtitle('affirmation-49')).toBe('感謝物流、門市與所有讓床墊來到我面前的人');
     expect(journalSubtitle('affirmation-50')).toBe('「山式」Mountain Pose');
+    expect(journalSubtitle('affirmation-51')).toBe('感謝妳幫助我感覺自己很好');
+    expect(journalSubtitle('affirmation-52')).toBe('我值得被溫柔地支持，感受到尊嚴、自信與完整');
+    expect(journalSubtitle('affirmation-53')).toBe('感謝我們可以一起想像未來');
   });
 });
 
@@ -141,7 +153,13 @@ describe('journalAdjacent', () => {
     expect(journalAdjacent('affirmation-49').prev?.id).toBe('affirmation-48');
     expect(journalAdjacent('affirmation-49').next?.id).toBe('affirmation-50');
     expect(journalAdjacent('affirmation-50').prev?.id).toBe('affirmation-49');
-    expect(journalAdjacent('affirmation-50').next).toBeUndefined();
+    expect(journalAdjacent('affirmation-50').next?.id).toBe('affirmation-51');
+    expect(journalAdjacent('affirmation-51').prev?.id).toBe('affirmation-50');
+    expect(journalAdjacent('affirmation-51').next?.id).toBe('affirmation-52');
+    expect(journalAdjacent('affirmation-52').prev?.id).toBe('affirmation-51');
+    expect(journalAdjacent('affirmation-52').next?.id).toBe('affirmation-53');
+    expect(journalAdjacent('affirmation-53').prev?.id).toBe('affirmation-52');
+    expect(journalAdjacent('affirmation-53').next).toBeUndefined();
     expect(journalAdjacent('affirmation-20').prev?.id).toBe('affirmation-19');
     expect(journalAdjacent('affirmation-20').next?.id).toBe('affirmation-21');
   });

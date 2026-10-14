@@ -11,9 +11,9 @@ export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_AUTHOR = '冠均';
 export const SITE_DESCRIPTION =
-  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄五十篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
+  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄五十三篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
 export const SITE_DESCRIPTION_EN =
-  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with fifty read-only notes on self-love, safety, intimacy, and creativity.';
+  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with fifty-three read-only notes on self-love, safety, intimacy, and creativity.';
 export const SITE_SAME_AS = ['https://www.instagram.com/riddles.tw'] as const;
 /** 填入 Google Search Console 驗證碼後會輸出 meta；空白則不輸出。 */
 export const SITE_GOOGLE_VERIFICATION = '';
@@ -87,6 +87,9 @@ export const JOURNAL_KEYWORDS: Readonly<Record<string, readonly string[]>> = {
   'affirmation-48': ['感恩', '製造'],
   'affirmation-49': ['感恩', '物流'],
   'affirmation-50': ['山式', '平衡'],
+  'affirmation-51': ['尊重', '自信'],
+  'affirmation-52': ['尊嚴', '支持'],
+  'affirmation-53': ['未來', '關係'],
 };
 
 export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = {
@@ -140,6 +143,9 @@ export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = 
   'affirmation-48': ['gratitude', 'manufacturing'],
   'affirmation-49': ['gratitude', 'logistics'],
   'affirmation-50': ['mountain pose', 'balance'],
+  'affirmation-51': ['respect', 'confidence'],
+  'affirmation-52': ['dignity', 'support'],
+  'affirmation-53': ['future', 'relationship'],
 };
 
 export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
@@ -231,6 +237,10 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
     '我感謝每一位貨車司機。感謝你們行駛在道路上，將材料與床墊送往不同的地方。',
   'affirmation-50':
     '它賦予我們平衡感和挺直感，這種如同有條穩定的軸線穿過身體中心的感覺，讓我們些微地體驗到中脈的力量。',
+  'affirmation-51': '今天，她用一種很溫柔、細緻的方式愛我。',
+  'affirmation-52': '我不需要什麼都會，才值得被尊重。',
+  'affirmation-53':
+    '在沙發上，在餐桌上，妳總是輕盈放鬆的，和我說起了未來生活的可能性。',
 };
 
 export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
@@ -322,6 +332,10 @@ export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
     'I thank every truck driver. Thank you for traveling the roads and carrying materials and mattresses to many places.',
   'affirmation-50':
     'It gives us a sense of balance and uprightness—like a steady axis through the body’s center—and a slight taste of the central channel’s power.',
+  'affirmation-51': 'Today, she loved me in a gentle, careful way.',
+  'affirmation-52': 'I do not need to know everything to deserve respect.',
+  'affirmation-53':
+    'On the sofa, at the table, you are always light and at ease, talking with me about possible futures.',
 };
 
 export function siteUrl(path: string = '/'): string {
