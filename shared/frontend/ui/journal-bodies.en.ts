@@ -1,4 +1,4 @@
-/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-54`. */
+/** English journal bodies (HTML). Keys match `affirmation-1` … `affirmation-56`. */
 export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
   'affirmation-1': `<section>
   <p>I love you, Guanjun.<br />I truly love you.<br />I trust you.</p>
@@ -795,5 +795,33 @@ export const JOURNAL_BODIES_EN: Readonly<Record<string, string>> = {
   <p>
     <strong>New belief:</strong> “She can enjoy being with me and still need space of her own. I can respect her boundaries and still feel the closeness between us.”
   </p>
+</section>`,
+
+  'affirmation-55': `<section>
+  <p>Practice Emotional Bridge.</p>
+  <p>I can feel hope again.</p>
+  <p>I look forward to a relationship of freedom, intimacy, and mutual appreciation.</p>
+  <p>Today, too, I live the way I long for.</p>
+  <p>
+    I place my attention on the life I truly like,<br />the beautiful life I feel,
+  </p>
+  <p>
+    finding a thought that is a little more comfortable than before,<br />and getting better little by little,
+  </p>
+  <p>I am grateful that I am willing to tell a new story I truly long for and desire.</p>
+  <p>I can move toward freedom, intimacy, and romance with ease, shifting step by step; I trust myself.</p>
+</section>`,
+
+  'affirmation-56': `<section>
+  <p>I really love cooking.</p>
+  <p>I love fresh ingredients, and preparing food that is healthy and delicious.</p>
+  <p>I love music.</p>
+  <p>I love sounds that are delicate, deep, and full of life.</p>
+  <p>I love moving my body, love yoga, and love feeling myself grow healthier and stronger.</p>
+  <p>I love creating.</p>
+  <p>I love Basslink, and love imagining people meeting through music and connecting through shared interests.</p>
+  <p>I like that I have so many interests, abilities, and ideas.</p>
+  <p>I like that I am someone with observation, feeling, and creativity.</p>
+  <p>I have so much to look forward to.</p>
 </section>`,
 };

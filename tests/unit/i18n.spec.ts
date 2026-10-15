@@ -28,9 +28,9 @@ describe('i18n', () => {
     expect(JOURNAL_BODIES_EN['affirmation-1']).toContain('<section>');
     expect(JOURNAL_BODIES_EN['affirmation-1']).toContain('I love you, Guanjun.');
     expect(JOURNAL_BODIES_EN['affirmation-13']).toContain('Connect with yourself');
-    expect(JOURNAL_BODIES_EN['affirmation-54']).toContain('</section>');
-    expect(JOURNAL_BODIES_EN['affirmation-54']).toContain(
-      'Thank you for being willing to explain, instead of letting the misunderstanding continue.',
+    expect(JOURNAL_BODIES_EN['affirmation-56']).toContain('</section>');
+    expect(JOURNAL_BODIES_EN['affirmation-56']).toContain(
+      'I like that I have so many interests, abilities, and ideas.',
     );
   });
 

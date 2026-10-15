@@ -11,9 +11,9 @@ export const SITE_NAME = 'grateful.tw';
 export const SITE_ORIGIN = 'https://grateful.tw';
 export const SITE_AUTHOR = '冠均';
 export const SITE_DESCRIPTION =
-  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄五十四篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
+  'grateful.tw 是冠均的繁體中文感恩日記與肯定語（Affirmation）練習站，收錄五十六篇只讀短箋，主題含自愛、安全感、親密關係與創造力。';
 export const SITE_DESCRIPTION_EN =
-  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with fifty-four read-only notes on self-love, safety, intimacy, and creativity.';
+  'grateful.tw is Guanjun’s Traditional Chinese gratitude journal and affirmation practice site, with fifty-six read-only notes on self-love, safety, intimacy, and creativity.';
 export const SITE_SAME_AS = ['https://www.instagram.com/riddles.tw'] as const;
 /** 填入 Google Search Console 驗證碼後會輸出 meta；空白則不輸出。 */
 export const SITE_GOOGLE_VERIFICATION = '';
@@ -91,6 +91,8 @@ export const JOURNAL_KEYWORDS: Readonly<Record<string, readonly string[]>> = {
   'affirmation-52': ['尊嚴', '支持'],
   'affirmation-53': ['未來', '關係'],
   'affirmation-54': ['界線', '信任'],
+  'affirmation-55': ['希望', '自由'],
+  'affirmation-56': ['興趣', '創造力'],
 };
 
 export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = {
@@ -148,6 +150,8 @@ export const JOURNAL_KEYWORDS_EN: Readonly<Record<string, readonly string[]>> = 
   'affirmation-52': ['dignity', 'support'],
   'affirmation-53': ['future', 'relationship'],
   'affirmation-54': ['boundaries', 'trust'],
+  'affirmation-55': ['hope', 'freedom'],
+  'affirmation-56': ['interests', 'creativity'],
 };
 
 export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
@@ -245,6 +249,10 @@ export const JOURNAL_DESCRIPTIONS: Readonly<Record<string, string>> = {
     '在沙發上，在餐桌上，妳總是輕盈放鬆的，和我說起了未來生活的可能性。',
   'affirmation-54':
     '愛可以同時有靠近與空間。我可以尊重界線，並在信任中依然感受到親密。',
+  'affirmation-55':
+    '我可以重新感受到希望。我期待自由、親密、彼此欣賞的關係。',
+  'affirmation-56':
+    '我喜歡自己有這麼多興趣、能力與想法。我有很多值得期待的事情。',
 };
 
 export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
@@ -342,6 +350,10 @@ export const JOURNAL_DESCRIPTIONS_EN: Readonly<Record<string, string>> = {
     'On the sofa, at the table, you are always light and at ease, talking with me about possible futures.',
   'affirmation-54':
     'Love can hold both closeness and space. I can respect boundaries and still feel intimacy in trust.',
+  'affirmation-55':
+    'I can feel hope again. I look forward to a relationship of freedom, intimacy, and mutual appreciation.',
+  'affirmation-56':
+    'I like that I have so many interests, abilities, and ideas. I have so much to look forward to.',
 };
 
 export function siteUrl(path: string = '/'): string {

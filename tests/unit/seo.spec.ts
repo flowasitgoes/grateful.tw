@@ -41,8 +41,8 @@ describe('site SEO', () => {
     expect(journalSeoTitle('affirmation-1')).toBe(
       '愛、信任與安全感｜感恩日記 Day 1｜grateful.tw',
     );
-    expect(journalSeoTitle('affirmation-54')).toBe(
-      '一個人的界線不是對我的否定｜感恩日記 Day 54｜grateful.tw',
+    expect(journalSeoTitle('affirmation-56')).toBe(
+      '我喜歡自己有這麼多興趣、能力與想法｜感恩日記 Day 56｜grateful.tw',
     );
 
     expect(journalKeywords('affirmation-1')).toEqual(['安全感', '肯定語']);
@@ -52,13 +52,13 @@ describe('site SEO', () => {
     expect(journalSeoDescription('affirmation-1')).toContain(
       '適合每日感恩日記與肯定語練習，主題：安全感、肯定語。',
     );
-    expect(journalSeoDescription('affirmation-54')).toContain('主題：界線、信任。');
+    expect(journalSeoDescription('affirmation-56')).toContain('主題：興趣、創造力。');
 
     expect(journalOgImageAlt('affirmation-1')).toBe('愛、信任與安全感｜感恩日記');
-    expect(journalOgImagePath('affirmation-54')).toBe('/og/affirmation-54.jpg');
+    expect(journalOgImagePath('affirmation-56')).toBe('/og/affirmation-56.jpg');
   });
 
-  it('lists home and fifty-four article paths for the sitemap', () => {
+  it('lists home and fifty-six article paths for the sitemap', () => {
     expect(sitemapPaths()).toHaveLength(JOURNAL_COUNT + 1);
     expect(sitemapPaths()[0]).toBe('/');
     expect(sitemapPaths()[1]).toBe('/journals/affirmation-1');
@@ -102,7 +102,7 @@ describe('site SEO', () => {
     const items = graph[1]?.itemListElement as Array<Record<string, unknown>>;
     expect(items).toHaveLength(JOURNAL_COUNT);
     expect(items[0]?.name).toBe('愛、信任與安全感');
-    expect(items[53]?.url).toBe('https://grateful.tw/journals/affirmation-54');
+    expect(items[55]?.url).toBe('https://grateful.tw/journals/affirmation-56');
     expect(websiteJsonLd().keywords).toContain('肯定語');
   });
 
@@ -112,12 +112,12 @@ describe('site SEO', () => {
     expect(shortMap).toContain('Affirmation');
     expect(shortMap).toContain('https://grateful.tw/llms-full.txt');
     expect(shortMap).toContain('https://grateful.tw/journals/affirmation-1');
-    expect(shortMap).toContain('Day 54');
+    expect(shortMap).toContain('Day 56');
 
     const full = renderLlmsFullTxt();
     expect(full).toContain('引用本站內容時');
     expect(full).toContain('我愛你，冠均。');
-    expect(full).toContain('https://grateful.tw/journals/affirmation-54');
+    expect(full).toContain('https://grateful.tw/journals/affirmation-56');
   });
 
   it('stamps SPA shell HTML with per-journal Open Graph for crawlers', () => {
@@ -125,33 +125,33 @@ describe('site SEO', () => {
 <html lang="zh-Hant">
   <head>
     <title>感恩日記｜grateful.tw</title>
-    <meta name="description" content="冠均的感恩日記。五十四篇肯定與感恩練習，極簡只讀。" />
+    <meta name="description" content="冠均的感恩日記。五十六篇肯定與感恩練習，極簡只讀。" />
     <link rel="canonical" href="https://grateful.tw/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="感恩日記｜grateful.tw" />
-    <meta property="og:description" content="冠均的感恩日記。五十四篇肯定與感恩練習，極簡只讀。" />
+    <meta property="og:description" content="冠均的感恩日記。五十六篇肯定與感恩練習，極簡只讀。" />
     <meta property="og:url" content="https://grateful.tw/" />
     <meta property="og:image" content="https://grateful.tw/og-image.png" />
     <meta property="og:image:alt" content="grateful.tw" />
     <meta name="twitter:title" content="感恩日記｜grateful.tw" />
-    <meta name="twitter:description" content="冠均的感恩日記。五十四篇肯定與感恩練習，極簡只讀。" />
+    <meta name="twitter:description" content="冠均的感恩日記。五十六篇肯定與感恩練習，極簡只讀。" />
     <meta name="twitter:image" content="https://grateful.tw/og-image.png" />
   </head>
   <body><app-root></app-root></body>
 </html>`;
 
-    const html = applyJournalShareMetaHtml(shell, 'affirmation-54');
+    const html = applyJournalShareMetaHtml(shell, 'affirmation-56');
     expect(html).toContain(
-      '<title>一個人的界線不是對我的否定｜感恩日記 Day 54｜grateful.tw</title>',
+      '<title>我喜歡自己有這麼多興趣、能力與想法｜感恩日記 Day 56｜grateful.tw</title>',
     );
-    expect(html).toContain('主題：界線、信任。');
+    expect(html).toContain('主題：興趣、創造力。');
     expect(html).toContain('property="og:type" content="article"');
-    expect(html).toContain('property="og:url" content="https://grateful.tw/journals/affirmation-54"');
+    expect(html).toContain('property="og:url" content="https://grateful.tw/journals/affirmation-56"');
     expect(html).toContain(
-      'property="og:image" content="https://grateful.tw/og/affirmation-54.jpg"',
+      'property="og:image" content="https://grateful.tw/og/affirmation-56.jpg"',
     );
     expect(html).toContain(
-      'name="twitter:image" content="https://grateful.tw/og/affirmation-54.jpg"',
+      'name="twitter:image" content="https://grateful.tw/og/affirmation-56.jpg"',
     );
     expect(html).toContain('id="grateful-jsonld"');
     expect(html).toContain('"@type":"Article"');

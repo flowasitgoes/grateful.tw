@@ -26,8 +26,8 @@ describe('first journal', () => {
     expect(html).toContain('routerLink');
   });
 
-  it('splits eleven chapters, daily short, structure, and later notes into fifty-four articles', () => {
-    expect(Object.keys(JOURNAL_HEADINGS)).toHaveLength(54);
+  it('splits eleven chapters, daily short, structure, and later notes into fifty-six articles', () => {
+    expect(Object.keys(JOURNAL_HEADINGS)).toHaveLength(56);
     expect(JOURNAL_HEADINGS['affirmation-1']).toBe('愛、信任與安全感');
     expect(JOURNAL_HEADINGS['affirmation-2']).toBe('自愛與自我接納');
     expect(JOURNAL_HEADINGS['affirmation-3']).toBe('內在小孩與療癒');
@@ -82,6 +82,8 @@ describe('first journal', () => {
     expect(JOURNAL_HEADINGS['affirmation-52']).toBe('我值得被溫柔地支持，感受到尊嚴、自信與完整');
     expect(JOURNAL_HEADINGS['affirmation-53']).toBe('感謝我們可以一起想像未來');
     expect(JOURNAL_HEADINGS['affirmation-54']).toBe('一個人的界線不是對我的否定');
+    expect(JOURNAL_HEADINGS['affirmation-55']).toBe('我可以重新感受到希望');
+    expect(JOURNAL_HEADINGS['affirmation-56']).toBe('我喜歡自己有這麼多興趣、能力與想法');
     expect(html).toContain("@case ('affirmation-1')");
     expect(html).toContain("@case ('affirmation-14')");
     expect(html).toContain("@case ('affirmation-34')");
@@ -105,6 +107,8 @@ describe('first journal', () => {
     expect(html).toContain("@case ('affirmation-52')");
     expect(html).toContain("@case ('affirmation-53')");
     expect(html).toContain("@case ('affirmation-54')");
+    expect(html).toContain("@case ('affirmation-55')");
+    expect(html).toContain("@case ('affirmation-56')");
     expect(html).toContain('我愛你，冠均。');
     expect(html).toContain('親愛的孩子，我們很高興你來到這個世界。');
     expect(html).toContain('1. 連結自己');
@@ -150,6 +154,10 @@ describe('first journal', () => {
     expect(html).toContain('願我們持續真誠地相處，感覺彼此的節奏，一起探索感到幸福的生活。');
     expect(html).toContain('1. 感謝妳願意解釋，而不是讓誤會繼續。');
     expect(html).toContain('新信念：');
+    expect(html).toContain('練習 Emotional Bridge。');
+    expect(html).toContain('我可以安心地朝向自由、親密與浪漫，一步一步轉換，我相信自己。');
+    expect(html).toContain('我很喜歡料理。');
+    expect(html).toContain('我有很多值得期待的事情。');
     expect(html).not.toContain('建議公式');
   });
 });
